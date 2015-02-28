@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rush.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:11:43 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/27 22:24:46 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/28 04:03:25 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define RUSH_H
 
 # include "libft.h"
-# include <termios.h>
-# include <signal.h>
+# include <curses.h>
+# include <ncurses.h>
 
 #endif
 
