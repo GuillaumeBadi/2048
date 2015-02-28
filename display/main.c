@@ -73,7 +73,8 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 		x = x_increm / 2;
 		while (j < 4)
 		{
-			mvprintw(y, x, ft_itoa(tab[i][j]));
+			
+			mvprintw(y, x - ft_intlen(tab[i][j]) / 2, ft_itoa(tab[i][j]));
 			x += x_increm;
 			j++;
 		}
@@ -115,7 +116,7 @@ int		main(void)
 		tab1[i] = (int *)malloc(sizeof(int) * 4);
 		for (int j = 0; j < 4; j++)
 		{
-			tab1[i][j] = i * 4 +  j;
+			tab1[i][j] = 12345;
 		}
 	}
 	initscr();
