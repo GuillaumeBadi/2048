@@ -14,8 +14,7 @@
 # define RUSH_H
 
 # include "libft.h"
-# include <termios.h>
-# include <signal.h>
+# include <curses.h>
 
 #endif
 
