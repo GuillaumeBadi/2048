@@ -147,8 +147,7 @@ int		main(void)
 	while (1)
 	{
 		ch = getch();
-		if (ft_keyTrigger(ch))
-			return;
+		tab1 = ft_keyTrigger(ch);
 		getmaxyx(stdscr, y_new, x_new);
 		if ((y_new != y_max || x_new != x_max) && y_new > 16 && x_new > 16)
 		{

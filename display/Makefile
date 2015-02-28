@@ -11,21 +11,15 @@
 # **************************************************************************** #
 
 CC = gcc
-
 NAME = game_2048
-
-SRC = main.c game.c
-
+SRC = main.c \
+	  game.c
 DIR_H = ./includes
-
 HEADERS = $(DIR_H)/rush.h \
 		 $(DIR_H)/libft.h \
 		 $(DIR_H)/get_next_line.h
-
 OBJ = $(SRC:%.c=%.o)
-
 CFLAGS = -Wextra -Wall -Werror -lncurses
-
 LIB = -L./libft -lft
 
 .PHONY: all libs clean fclean re

@@ -20,7 +20,6 @@ void	right(int x)
 	getmaxyx(stdscr, y_max, x_max);
 	if ((x + 1 + x_max) < x)
 		x++;
-	return;
 }
 
 void	left(int x)
@@ -31,7 +30,6 @@ void	left(int x)
 	getmaxyx(stdscr, y_max, x_max);
 	if ((x - 1) > 0)
 		x--;
-	return;
 }
 
 void	up(int y)
@@ -42,10 +40,9 @@ void	up(int y)
 	getmaxyx(stdscr, y_max, x_max);
 	if ((y - 1) > 0)
 		y--;
-	return;
 }
 
-void	down(int y)
+void	down(int **y)
 {
 	int x_max;
 	int y_max;
@@ -53,10 +50,9 @@ void	down(int y)
 	getmaxyx(stdscr, y_max, x_max);
 	if ((y + 1 + y_max) < y)
 		y++;
-	return;
 }
 
-int		ft_keyTrigger(int keyPress)
+int		**ft_keyTrigger(int keyPress, int **tab)
 {
 	int x;
 	int y;
@@ -64,22 +60,23 @@ int		ft_keyTrigger(int keyPress)
 	if (keyPress == KEY_UP)
 	{
 		ft_putendl("Up Key");
-		up(y - 2);
+		tab = up(tab);
 	}
 	else if (keyPress == KEY_DOWN)
 	{
 		ft_putendl("Down Key");
-		down(y - 2);
+		tab = down(tab);
 	}
 	else if (keyPress == KEY_LEFT)
 	{
 		ft_putendl("Left Key");
-		left(x - 1);
+		tab = left(tab);
 	}
 	else if (keyPress == KEY_RIGHT)
 	{
 		ft_putendl("Right Key");
-		right(x - 1);
+		tab = right(tab);
 	}
+	return (tab);
 }
 
