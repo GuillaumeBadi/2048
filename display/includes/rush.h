@@ -17,6 +17,8 @@
 # include <curses.h>
 # include <ncurses.h>
 
+# define SIZE	4
+
 int		ft_keyTrigger(int keyPress);
 
 #endif

@@ -12,8 +12,7 @@
 
 CC = gcc
 NAME = game_2048
-SRC = main.c \
-	  game.c
+SRC = main.c
 DIR_H = ./includes
 HEADERS = $(DIR_H)/rush.h \
 		 $(DIR_H)/libft.h \
