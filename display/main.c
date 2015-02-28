@@ -25,11 +25,37 @@ int		main(void)
 	curs_set(FALSE);
 	getmaxyx(stdscr, y_max, x_max);
 	field = newwin(y_max, x_max, 0, 0);
+	x_max /= 4;
+	y_max /= 4;
+	x_max *= 4;
+	y_max *= 4;
 	y = 0;
-	while (y < y_max)
+	while (y <= y_max)
 	{
 		x = 0;
-		while (x < x_max)
+		while (x <= x_max)
+		{
+			mvwprintw(field, y, x, "|");
+			x += x_max / 4;
+		}
+		y++;
+	}
+	y = 0;
+	while (y <= y_max)
+	{
+		x = 0;
+		while (x <= x_max)
+		{
+			mvwprintw(field, y, x, "-");
+			x++;
+		}
+		y += y_max / 4;
+	}
+	y = 0;
+	while (y <= y_max)
+	{
+		x = 0;
+		while (x <= x_max)
 		{
 			mvwprintw(field, y, x, "+");
 			x += x_max / 4;
