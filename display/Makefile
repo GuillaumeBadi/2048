@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = gcc
-NAME = gamw_2048
+NAME = game_2048
 SRC = main.c
 DIR_H = ./includes
 HEADERS = $(DIR_H)/rush.h \
