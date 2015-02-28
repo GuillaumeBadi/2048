@@ -6,7 +6,7 @@
 #    By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 05:41:35 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/28 04:50:47 by dvolberg         ###   ########.fr        #
+#    Updated: 2015/02/28 08:17:43 by dvolberg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 
 NAME = game_2048
 
-SRC = main.c
+SRC = main.c game.c
 
 DIR_H = ./includes
 
@@ -34,7 +34,7 @@ all: libs $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "\033[31m"
-	@$(CC) -o $@ $^ $(LIB) -lncurses -g
+	@$(CC) -o $@ $^ $(LIB) $(CFLAGS) -g
 	@echo "\033[37m"
 
 libs:

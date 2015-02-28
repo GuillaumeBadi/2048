@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:11:43 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/28 04:38:11 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/02/28 08:13:21 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "libft.h"
 # include <curses.h>
 # include <ncurses.h>
+
+int		ft_keyTrigger(int keyPress);
 
 #endif
 
