@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 18:01:29 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 20:24:13 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:11:54 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ mvprintw (21, (COLS / 2) - 23, " `    \"8%%    X888>                            
 mvprintw (22, (COLS / 2) - 23, "    .x..     888f                             ");
 mvprintw (23, (COLS / 2) - 23, "   88888    :88f                              ");
 mvprintw (24, (COLS / 2) - 23, "   \"88*\"  .x8*~                               ");
-
+mvprintw (25, (COLS / 2) - 12, "Press enter to continue.");
 mvprintw (26, (COLS / 2) - 26, "        ...    .     ...         .                  ");
 mvprintw (27, (COLS / 2) - 26, "     .~`\"888x.!**h.-``888h.     @88>                ");
 mvprintw (28, (COLS / 2) - 26, "    dX   `8888   :X   48888>    %%8P      u.    u.   ");
