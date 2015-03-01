@@ -6,7 +6,11 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2015/03/01 21:51:32 by gbadi            ###   ########.fr       */
+=======
+/*   Updated: 2015/03/01 21:56:24 by dvolberg         ###   ########.fr       */
+>>>>>>> f0c3bd0566fc552ec6960ebc3df71c4d10046d4c
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +62,7 @@ typedef struct			s_env
 enum					e_const
 {
 	SIZE = 4,
-	WIN_VALUE = 8
+	WIN_VALUE = 2048
 };
 
 int						**fill_tab(t_env *env);

@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 18:01:29 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 21:11:54 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 22:00:37 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,42 +83,6 @@ void part_3(void)
 	attron(COLOR_PAIR(26));
 	mvprintw (30, (COLS / 2) - 32,
 		"  ~*??.            >   8888  8888 8888.+\"      4888>      ");
-}
-
-void printwin(int x)
-{
-	attron(COLOR_PAIR(20));
-mvprintw (10, (COLS / 2) - 23, "                                              ");
-mvprintw (11, (COLS / 2) - 23, "   .xnnx.  .xx.                               ");
-mvprintw (12, (COLS / 2) - 23, " .f``\"888X< `888.         u.      x.    .     ");
-mvprintw (13, (COLS / 2) - 23, " 8L   8888X  8888   ...ue888b   .@88k  z88u   ");
-mvprintw (14, (COLS / 2) - 23, "X88h. `8888  X888k  888R Y888r ~\"8888 ^8888   ");
-mvprintw (15, (COLS / 2) - 23, "'8888 '8888  X8888  888R I888>   8888  888R   ");
-mvprintw (16, (COLS / 2) - 23, " `*88>'8888  X8888  888R I888>   8888  888R   ");
-mvprintw (17, (COLS / 2) - 23, "   `! X888~  X8888  888R I888>   8888  888R   ");
-mvprintw (18, (COLS / 2) - 23, "  -`  X*\"    X8888 u8888cJ888    8888 ,888B . ");
-mvprintw (19, (COLS / 2) - 23, "   xH88hx  . X8888  \"*888*P\"    \"8888Y 8888\"  ");
-mvprintw (20, (COLS / 2) - 23, " .*\"*88888~  X888X    'Y\"        `Y\"   'YP    ");
-mvprintw (21, (COLS / 2) - 23, " `    \"8%%    X888>                            ");
-mvprintw (22, (COLS / 2) - 23, "    .x..     888f                             ");
-mvprintw (23, (COLS / 2) - 23, "   88888    :88f                              ");
-mvprintw (24, (COLS / 2) - 23, "   \"88*\"  .x8*~                               ");
-mvprintw (25, (COLS / 2) - 12, "Press enter to continue.");
-mvprintw (26, (COLS / 2) - 26, "        ...    .     ...         .                  ");
-mvprintw (27, (COLS / 2) - 26, "     .~`\"888x.!**h.-``888h.     @88>                ");
-mvprintw (28, (COLS / 2) - 26, "    dX   `8888   :X   48888>    %%8P      u.    u.   ");
-mvprintw (29, (COLS / 2) - 26, "   '888x  8888  X88.  '8888>     .     x@88k u@88c. ");
-mvprintw (30, (COLS / 2) - 26, "   '88888 8888X:8888:   )?\"\"`  .@88u  ^\"8888\"\"8888\" ");
-mvprintw (31, (COLS / 2) - 26, "    `8888>8888 '88888>.88h.   ''888E`   8888  888R  ");
-mvprintw (32, (COLS / 2) - 26, "      `8\" 888f  `8888>X88888.   888E    8888  888R  ");
-mvprintw (33, (COLS / 2) - 26, "     -~` '8%%\"     88\" `88888X   888E    8888  888R  ");
-mvprintw (34, (COLS / 2) - 26, "     .H888n.      XHn.  `*88!   888E    8888  888R  ");
-mvprintw (35, (COLS / 2) - 26, "    :88888888x..x88888X.  `!    888&   \"*88*\" 8888\" ");
-mvprintw (36, (COLS / 2) - 26, "    f  ^%%888888%% `*88888nx\"     R888\"    \"\"   'Y\"   ");
-mvprintw (37, (COLS / 2) - 26, "         `\"**\"`    `\"**\"\"        \"\"                 ");
-mvprintw (38, (COLS / 2) - 26, "                                                    ");
-mvprintw (39, (COLS / 2) - 26, "                                                    ");
-mvprintw (40, (COLS / 2) - 26, "                                                    ");
 }
 
 void printgameover(int x)
