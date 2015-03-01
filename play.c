@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 10:54:28 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 18:09:07 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 20:59:29 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,35 @@ void printtitle(int x)
 	mvprintw(8, (COLS / 2) - 31,
 		" \"**\"  x88888~ 88888X   88888X    .P  8888R    \"88888888NNu.   ");
 	part2();
+}
+
+int youwin(int x, t_env *env)
+{
+	int ch;
+
+
+	ch = 0;
+	wclear(stdscr);
+	wrefresh(stdscr);
+	env->win = 1;
+	while (1)
+	{
+		ch = getch();
+		printwin(x);
+		if (ch == 'q' || ch == 'Q' || ch == 27)
+		{
+			// printf("==========");
+			endwin();
+			return (0);
+		}
+		if (ch == 10)
+		{
+			wclear(stdscr);
+			// play(env);
+			return (1);
+		}
+		refresh();
+	}
 }
 
 void gameover(int x)

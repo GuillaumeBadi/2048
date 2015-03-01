@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 18:59:03 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:04:30 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,19 @@ void		printmenu( bool sel, WINDOW *new_game, WINDOW *quit_game ) {
 
 int			play(t_env *env)
 {
-	char	playing;
 	int		y_new;
 	int		x_new;
 	int		y_max;
 	int		x_max;
 	int		ret;
 	int 	ch;
-	int fd;
+	int status;
 
-	playing = 1;
-
+	wclear(stdscr);
 	getmaxyx(stdscr, y_max, x_max);
 	ft_draw_grid(env->tab);
 	refresh();
-	while (playing)
+	while (1)
 	{
 		getmaxyx(stdscr, y_new, x_new);
 		if (y_new != y_max || x_new != x_max)
@@ -57,26 +55,18 @@ int			play(t_env *env)
 		if (ret == -1)
 		{
 			gameover(x_max);
-			playing = 0;
-			// free_env(env);
 			return (-1);
 		}
 		else if (ret == 1)
 		{
-			playing = 0;
-			// free_env(env);
-			return (42);
-		}/*
-		if (y_new != y_max || x_new != x_max)
-		{
-			//y_max = y_new;
-			//x_max = x_new;
+			if (env->win == 0)
+			{
+				status = youwin(x_max, env);
+				ft_draw_grid(env->tab);
+			}
+			if (status == 0)
+				return (42);
 		}
-		else if (y_new <= 16 || x_new <= 16)
-		{
-			mvprintw(0, 0, "la fenêtre est trop petite");
-			continue ;
-		}*/
 
 		ch = getch();
 		if (ch != -1)
@@ -90,7 +80,8 @@ int			play(t_env *env)
 	return(0);
 }
 
-void		menu(int y, int x, t_env *env) {
+void		menu(int y, int x, t_env *env)
+{
 	int		ch = 10;
 	bool	sel = true;
 	WINDOW	*new_game = newwin(30, 20 , 17, (x / 2) - 10);
@@ -143,6 +134,7 @@ int			main(void)
 	env->score = 0;
 	env->tab = fill_tab(env);
 	env->tab = fill_tab(env);
+	env->win = 0;
 	getmaxyx(stdscr, y_max, x_max);
 	menu(y_max, x_max, env);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 19:37:02 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 20:56:55 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 typedef struct			s_env
 {
 	int					**tab;
+	int					win;
 	size_t				score;
 	size_t				highscore;
 	char				pop;
@@ -55,7 +56,7 @@ typedef struct			s_env
 
 enum 					e_const
 {
-	WIN_VALUE = 2048
+	WIN_VALUE = 8
 };
 
 int						**fill_tab(t_env *env);
