@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 18:27:47 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 19:43:10 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 {
 	int		y_increm;
 	int		x_increm;
-	char	*number;
 	int		x;
 	int		y;
 	int		i;
@@ -36,8 +35,8 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 		{
 			if (tab[i][j] != 3)
 			{
-				getmaxyx(stdscr, h, w);
-				if (h <= 35 || w <= 170)
+				 getmaxyx(stdscr, h, w);
+				 if (h <= 35 || (w / SIZE <= 34))
 				{
 					attron(COLOR_PAIR(ft_get_pair(tab[i][j])));
 					mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, ft_itoa(tab[i][j]));
@@ -67,7 +66,7 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 						ascii_1024(y, x);
 					else if (ft_strcmp(ft_itoa(tab[i][j]), "2048") == 0)
 						ascii_2048(y, x);
-				}
+				 }
 			}
 			x += x_increm;
 			j++;
@@ -93,18 +92,18 @@ void	color_init(void)
 	init_color(COLOR_512, 155 * 3, 28 * 3, 29 * 3);
 	init_color(COLOR_1024, 155 * 3, 28 * 3, 29 * 3);
 	init_color(COLOR_2048, 155 * 3, 28 * 3, 29 * 3);
-    init_pair(10, 231, COLOR_BLACK);
-    init_pair(20, 251, COLOR_BLACK);
-    init_pair(21, 249, COLOR_BLACK);
-    init_pair(22, 247, COLOR_BLACK);
-    init_pair(23, 245, COLOR_BLACK);
-    init_pair(24, 243, COLOR_BLACK);
-    init_pair(25, 241, COLOR_BLACK);
-    init_pair(26, 239, COLOR_BLACK);
-    init_pair(27, 237, COLOR_BLACK);
-    init_pair(28, 235, COLOR_BLACK);
-    init_pair(29, 233, COLOR_BLACK);
-    init_pair(30, 232, COLOR_BLACK);
+	init_pair(10, 231, COLOR_BLACK);
+	init_pair(20, 251, COLOR_BLACK);
+	init_pair(21, 249, COLOR_BLACK);
+	init_pair(22, 247, COLOR_BLACK);
+	init_pair(23, 245, COLOR_BLACK);
+	init_pair(24, 243, COLOR_BLACK);
+	init_pair(25, 241, COLOR_BLACK);
+	init_pair(26, 239, COLOR_BLACK);
+	init_pair(27, 237, COLOR_BLACK);
+	init_pair(28, 235, COLOR_BLACK);
+	init_pair(29, 233, COLOR_BLACK);
+	init_pair(30, 232, COLOR_BLACK);
 	init_pair(1, COLOR_WHITE, COLOR_BLACK);
 	init_pair(3, COLOR_BLACK, COLOR_WHITE);
 	init_pair(13, 0, COLOR_EMPTY);
