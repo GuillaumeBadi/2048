@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 15:55:46 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:23:52 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,23 @@ int						**merge_right(t_env *env);
 void					ft_init(void);
 int						**ft_keytrigger(int keyPress, t_env *env);
 int						check(t_env *env);
+void					ft_putnbr_to_grid(int y_max, int x_max, int **tab);
+void					gameover(int x);
+void					printTitle(int x);
 
-void	ascii_1(int y, int x);
 void	print_2(int y, int x);
-void	ascii_3(int y, int x);
+void	print_8(int y, int x);
 void	print_4(int y, int x);
+
+
+void	ascii_0(int y, int x);
+void	ascii_1(int y, int x);
+void	ascii_2(int y, int x);
+void	ascii_3(int y, int x);
+void	ascii_4(int y, int x);
 void	ascii_5(int y, int x);
 void	ascii_6(int y, int x);
-void	print_8(int y, int x);
+void	ascii_8(int y, int x);
 void	ascii_9(int y, int x);
 void	ascii_16(int y, int x);
 void	ascii_32(int y, int x);

@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 14:43:39 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:17:15 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int			play(int y_max, int x_max, t_env *env)
 		}
 
 	}
+	return(0);
 }
 
 void		menu(int y, int x, t_env *env) {
