@@ -44,10 +44,19 @@ int			play(int y_max, int x_max, t_env *env)
 	int 	ch;
 
 	playing = 1;
-	int		fd;
-	fd = open("toto", O_WRONLY | O_TRUNC);
+	int fd;
+	fd = open("pd", O_RDWR | O_APPEND);
 	while (playing)
 	{
+		getmaxyx(stdscr, y_new, x_new);
+		if (y_new != y_max || x_new != x_max)
+		{
+			dprintf(fd, "%s\n", "============================");
+			y_max = y_new;
+			x_max = x_new;
+			clear();
+			ft_draw_grid(env->tab);
+		}
 		ret = check(env);
 		if (ret == -1)
 		{
@@ -61,20 +70,17 @@ int			play(int y_max, int x_max, t_env *env)
 			playing = 0;
 			// free_env(env);
 			return (42);
-		}
-		getmaxyx(stdscr, y_new, x_new);
+		}/*
 		if (y_new != y_max || x_new != x_max)
 		{
-			y_max = y_new;
-			x_max = x_new;
-			clear();
-			ft_draw_grid(env->tab);
+			//y_max = y_new;
+			//x_max = x_new;
 		}
 		else if (y_new <= 16 || x_new <= 16)
 		{
 			mvprintw(0, 0, "la fenêtre est trop petite");
 			continue ;
-		}
+		}*/
 
 		ch = getch();
 		if (ch != -1)
@@ -82,7 +88,6 @@ int			play(int y_max, int x_max, t_env *env)
 			env->tab = ft_keytrigger(ch, env);
 			ft_draw_grid(env->tab);
 		}
-
 	}
 	return(0);
 }
@@ -103,7 +108,7 @@ void		menu(int y, int x, t_env *env) {
 			sel = true;
 		else if (ch == KEY_DOWN)
 			sel = false;
-		else if (ch == 10)  // 10 = KEY_ENTER
+		else if (ch == 10)
 			break;
 		if (ch == 27)
 			break;

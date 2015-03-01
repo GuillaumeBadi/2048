@@ -65,7 +65,10 @@ void gameover(int x)
 		ch = getch();
 		printGameOver(x);
 		if (ch == 'q' || ch == 'Q' || ch == 27 || ch == 10)
+		{
+			endwin();
 			break;
+		}
 		refresh();
 	}
 }
