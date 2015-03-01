@@ -6,8 +6,8 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 23:33:40 by bdurst           ###   ########.fr       */
-m*                                                                            */
+/*   Updated: 2015/03/01 23:39:11 by gbadi            ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
@@ -58,8 +58,9 @@ void		menu(int x, int y, t_env *env)
 	delwin(quit_game);
 	if (sel && ((env->tab = ft_keytrigger(env->ch, env))))
 		play(env);
-	}
 	endwin();
+	(void)x;
+	(void)y;
 }
 
 int			ft_pow(int b, int n)

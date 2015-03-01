@@ -6,7 +6,7 @@
 #    By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/01 22:16:59 by gbadi             #+#    #+#              #
-#    Updated: 2015/03/01 23:22:39 by gbadi            ###   ########.fr        #
+#    Updated: 2015/03/01 23:37:47 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 SOURCE = main.c\
 		ascii.c\
 		ascii2.c\
+		print_tout.c\
 		display.c\
 		draw.c\
 		ft_get_pair.c\
