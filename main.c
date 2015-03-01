@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 23:36:59 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 23:39:11 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void		menu(int x, int y, t_env *env)
 	if (sel && ((env->tab = ft_keytrigger(env->ch, env))))
 		play(env);
 	endwin();
+	(void)x;
+	(void)y;
 }
 
 int			ft_pow(int b, int n)
