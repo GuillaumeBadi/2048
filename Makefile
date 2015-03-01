@@ -6,7 +6,7 @@
 #    By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/01 22:16:59 by gbadi             #+#    #+#              #
-#    Updated: 2015/03/01 23:14:16 by gbadi            ###   ########.fr        #
+#    Updated: 2015/03/01 23:22:39 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,13 +63,14 @@ $(NAME): $(SRCO)
 	@$(CC) $(CFLAGS) $(SOURCE) -L./libft/ -lft -o $(NAME) -I./includes/ -lncurses
 
 %.o: %.c ./includes/game.h
-	$(CC) -o $@  -I includes/ -c $< -lncurses $(FLAGS)
+	@$(CC) -o $@  -I includes/ -c $< -lncurses $(FLAGS)
 
 clean:
-	make -C libft clean
+	@make -C libft clean
+	@/bin/rm -rf $(SRCO)
 
 fclean: clean
-	make -C libft fclean
-	/bin/rm -rf $(NAME)
+	@make -C libft fclean
+	@/bin/rm -rf $(NAME)
 
 re: fclean all
