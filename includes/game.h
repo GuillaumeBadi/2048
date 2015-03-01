@@ -61,7 +61,6 @@ enum					e_const
 	WIN_VALUE = 2048
 };
 
-
 int						**fill_tab(t_env *env);
 void					ft_draw_grid(int **tab);
 int						**make_tab();
@@ -105,5 +104,7 @@ void					ascii_4096(int y, int x);
 void					free_env(t_env *e);
 int						play(t_env *env);
 void					printwin(int x);
+void					gameover(int x);
+void					printtitle(int x);
 
 #endif
