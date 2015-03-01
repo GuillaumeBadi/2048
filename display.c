@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 14:42:04 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:27:47 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,18 +91,18 @@ void	color_init(void)
 	init_color(COLOR_128, 155 * 3, 208 * 3, 239 * 3);
 	init_color(COLOR_256, 155 * 3, 208 * 3, 239 * 3);
 	init_color(COLOR_512, 155 * 3, 28 * 3, 29 * 3);
-    init_pair(10, 231, COLOR_BLACK);
-    init_pair(20, 251, COLOR_BLACK);
-    init_pair(21, 249, COLOR_BLACK);
-    init_pair(22, 247, COLOR_BLACK);
-    init_pair(23, 245, COLOR_BLACK);
-    init_pair(24, 243, COLOR_BLACK);
-    init_pair(25, 241, COLOR_BLACK);
-    init_pair(26, 239, COLOR_BLACK);
-    init_pair(27, 237, COLOR_BLACK);
-    init_pair(28, 235, COLOR_BLACK);
-    init_pair(29, 233, COLOR_BLACK);
-    init_pair(30, 232, COLOR_BLACK);
+	init_pair(10, 231, COLOR_BLACK);
+	init_pair(20, 251, COLOR_BLACK);
+	init_pair(21, 249, COLOR_BLACK);
+	init_pair(22, 247, COLOR_BLACK);
+	init_pair(23, 245, COLOR_BLACK);
+	init_pair(24, 243, COLOR_BLACK);
+	init_pair(25, 241, COLOR_BLACK);
+	init_pair(26, 239, COLOR_BLACK);
+	init_pair(27, 237, COLOR_BLACK);
+	init_pair(28, 235, COLOR_BLACK);
+	init_pair(29, 233, COLOR_BLACK);
+	init_pair(30, 232, COLOR_BLACK);
 	init_pair(1, COLOR_WHITE, COLOR_BLACK);
 	init_pair(3, COLOR_BLACK, COLOR_WHITE);
 	init_pair(2, COLOR_BG, COLOR_2);

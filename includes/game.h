@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 16:23:52 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:24:32 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stdio.h>////////
 //////////////////////////
 
-# define SIZE 			4
+# define SIZE 			1
 # define EMPTY 			3
 
 # define COLOR_EMPTY	(3 + 10)
@@ -74,7 +74,8 @@ int						**ft_keytrigger(int keyPress, t_env *env);
 int						check(t_env *env);
 void					ft_putnbr_to_grid(int y_max, int x_max, int **tab);
 void					gameover(int x);
-void					printTitle(int x);
+void					printtitle(int x);
+void					printgameover(int x);
 
 void	print_2(int y, int x);
 void	print_8(int y, int x);
