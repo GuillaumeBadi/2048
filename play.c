@@ -6,7 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 10:54:28 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 21:58:17 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 23:03:24 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ int			play(t_env *env)
 
 void		printtitle(int x)
 {
+	x = x;
 	attron(COLOR_PAIR(20));
 	mvprintw(4, (COLS / 2) - 31,
 		"  .--~*teu.        .n~~%%x.             xeee       u+=~~~+u.    ");
