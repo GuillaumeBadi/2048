@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 00:29:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 10:51:25 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 12:59:30 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,31 +53,24 @@ int					**fill_tab(t_env *env)
 	}
 	return (env->tab);
 }
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-void				print_tab(t_env *env)
+
+void				free_env(t_env *e)
 {
-	size_t			i;
-	size_t			j;
-	int				fd;
+	int				i;
 
 	i = 0;
-	// fd = open("log.txt", O_CREAT | O_RDWR | O_APPEND, 644);
-	fd = 1;
-	while (env->tab[i])
+
+	while (i < SIZE)
 	{
-		j = 0;
-		while (env->tab[i][j])
-		{
-			// dprintf(fd, "%d ", (env->tab[i][j] == EMPTY) ? 0 : env->tab[i][j]);
-			j++;
-		}
-		write(fd, "\n", 1);
+		free(e->tab[i]);
 		i++;
 	}
-	write(fd, "\n", 1);
-	// close(fd);
+	free(e->tab);
+	free(e);
+	e = NULL;
+	e->tab = NULL;
 }
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 int					**make_tab(void)
 {
 	int				**tab;

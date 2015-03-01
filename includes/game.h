@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 10:52:03 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:55:46 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@
 # define SIZE 			4
 # define EMPTY 			3
 
-# define COLOR_EMPTY	3 + 10
-# define COLOR_BG		5 + 10
-# define COLOR_2		2 + 10
-# define COLOR_4		4 + 10
-# define COLOR_8		8 + 10
-# define COLOR_16		16 + 10
-# define COLOR_32		32 + 10
-# define COLOR_64		64 + 10
-# define COLOR_128		128 + 10
-# define COLOR_256		256 + 10
-# define COLOR_512		512 + 10
-# define COLOR_1024		1024 + 10
-# define COLOR_2048		2048 + 10
-# define COLOR_4098		4098 + 10
+# define COLOR_EMPTY	(3 + 10)
+# define COLOR_BG		(5 + 10)
+# define COLOR_2		(2 + 10)
+# define COLOR_4		(4 + 10)
+# define COLOR_8		(8 + 10)
+# define COLOR_16		(16 + 10)
+# define COLOR_32		(32 + 10)
+# define COLOR_64		(64 + 10)
+# define COLOR_128		(128 + 10)
+# define COLOR_256		(256 + 10)
+# define COLOR_512		(512 + 10)
+# define COLOR_1024		(1024 + 10)
+# define COLOR_2048		(2048 + 10)
+# define COLOR_4098		(4098 + 10)
 
 # define TWO_RATIO 		8
 
@@ -72,6 +72,7 @@ int						**merge_right(t_env *env);
 void					ft_init(void);
 int						**ft_keytrigger(int keyPress, t_env *env);
 int						check(t_env *env);
+
 void	ascii_1(int y, int x);
 void	print_2(int y, int x);
 void	ascii_3(int y, int x);
@@ -89,4 +90,6 @@ void	ascii_512(int y, int x);
 void	ascii_1024(int y, int x);
 void	ascii_2048(int y, int x);
 void	ascii_4096(int y, int x);
+void					free_env(t_env *e);
+
 #endif

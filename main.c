@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 12:48:34 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:43:39 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 void		printmenu( bool sel, WINDOW *new_game, WINDOW *quit_game ) {
 	if (sel) {
 
-		wattron(new_game, COLOR_PAIR(4));
-	wborder(new_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
-		ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
+		wattron(new_game, COLOR_PAIR(3));
+		// wborder(new_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
+		// ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
 		mvwprintw(new_game, 1, 1 , "     New Game     ");
-		wattroff(new_game, COLOR_PAIR(4));
-		wborder(quit_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
-		ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
+		wattroff(new_game, COLOR_PAIR(3));
+		// wborder(quit_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
+		// ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
 		mvwprintw(quit_game, 1, 1 , "     Quit Game    ");
 	} else {
-		wborder(new_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
-		ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
+		// wborder(new_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
+		// ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
 		mvwprintw(new_game, 1, 1 , "     New Game     ");
-		wattron(quit_game, COLOR_PAIR(4));
-		wborder(quit_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
-		ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
+		wattron(quit_game, COLOR_PAIR(3));
+		// wborder(quit_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
+		// ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
 		mvwprintw(quit_game, 1, 1 , "     Quit Game    ");
-		wattroff(quit_game, COLOR_PAIR(4));
+		wattroff(quit_game, COLOR_PAIR(3));
 	}
 }
 
@@ -53,12 +53,13 @@ int			play(int y_max, int x_max, t_env *env)
 		{
 			gameover(x_max);
 			playing = 0;
+			// free_env(env);
 			return (-1);
 		}
 		else if (ret == 1)
 		{
-			printf("%s\n", "gagne");
 			playing = 0;
+			// free_env(env);
 			return (42);
 		}
 		getmaxyx(stdscr, y_new, x_new);
@@ -88,8 +89,8 @@ int			play(int y_max, int x_max, t_env *env)
 void		menu(int y, int x, t_env *env) {
 	int		ch = 10;
 	bool	sel = true;
-	WINDOW	*new_game = newwin(3, 20 , 17, (x / 2) - 10);
-	WINDOW	*quit_game = newwin(3, 20, 20, (x / 2) - 10);
+	WINDOW	*new_game = newwin(30, 20 , 17, (x / 2) - 10);
+	WINDOW	*quit_game = newwin(30, 20, 20, (x / 2) - 10);
 
 	while (1)
 	{
@@ -113,7 +114,7 @@ void		menu(int y, int x, t_env *env) {
 	delwin(quit_game);
 	if (sel)
 	{
-		wclear(stdscr);
+		env->tab = ft_keytrigger(ch, env);
 		ft_draw_grid(env->tab);
 		play(y, x, env);
 	}

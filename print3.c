@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   print3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/05 15:39:21 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 08:05:44 by gbadi            ###   ########.fr       */
+/*   Created: 2015/03/01 05:01:36 by dvolberg          #+#    #+#             */
+/*   Updated: 2015/03/01 10:50:20 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "game.h"
 
-void	*ft_memalloc(size_t size)
+void ascii_2048(int y, int x)
 {
-	void	*dst;
-
-	dst = NULL;
-	if (size)
-	{
-		dst = malloc(sizeof(dst) * size);
-		if (dst)
-			ft_bzero(dst, size);
-		else
-			return (NULL);
-	}
-	return (dst);
+	attron(COLOR_PAIR(COLOR_2048));
+	ascii_2(y, x);
+	ascii_0(y, x + 6);
+	ascii_4(y, x + 14);
+	ascii_8(y, x + 21);
+	attroff(COLOR_PAIR(COLOR_2048));
 }
