@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+         #
+#    By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 05:41:43 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/28 03:17:43 by bsautron         ###   ########.fr        #
+#    Updated: 2015/03/01 23:13:49 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,7 +103,6 @@ $(NAME): $(OBJ)
 	@echo "\033[37m"
 
 %.o: %.c ../includes/libft.h ../includes/get_next_line.h
-	@echo "\033[36m   $<"
 	@$(CC) $(FLAGS) -I ../includes/ -c $<
 
 clean:

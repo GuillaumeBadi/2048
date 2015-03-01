@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   play3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 21:51:49 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 22:23:00 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 23:06:09 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void win2(void)
 
 void printwin(int x)
 {
+	(void)x;
 	win();
 	win1();
 	win2();

@@ -6,8 +6,8 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 23:31:12 by bdurst           ###   ########.fr       */
-/*                                                                            */
+/*   Updated: 2015/03/01 23:33:40 by bdurst           ###   ########.fr       */
+m*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
@@ -34,7 +34,7 @@ void		printmenu(int *sel, WINDOW *new_game, WINDOW *quit_game, int ch)
 		*sel = 0;
 }
 
-void		menu(int y, int x, t_env *env)
+void		menu(int x, int y, t_env *env)
 {
 	int		sel;
 	WINDOW	*new_game;
@@ -58,6 +58,7 @@ void		menu(int y, int x, t_env *env)
 	delwin(quit_game);
 	if (sel && ((env->tab = ft_keytrigger(env->ch, env))))
 		play(env);
+	}
 	endwin();
 }
 
@@ -110,6 +111,6 @@ int			main(void)
 	env->tab = fill_tab(env);
 	env->win = 0;
 	getmaxyx(stdscr, y_max, x_max);
-	menu(y_max, x_max, env);
+	menu(x_max, y_max, env);
 	return (0);
 }

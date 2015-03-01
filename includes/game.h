@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 23:11:56 by bdurst           ###   ########.fr       */
+/*   Updated: 2015/03/01 23:32:43 by bdurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ typedef struct			s_env
 	size_t				score;
 	size_t				highscore;
 	char				pop;
-	int		y_new;
-	int		x_new;
-	int		y_max;
-	int		x_max;
-		int		status;
+	int					y_new;
+	int					x_new;
+	int					y_max;
+	int					x_max;
+	int					status;
 }						t_env;
 
 enum					e_const
@@ -60,6 +60,7 @@ enum					e_const
 	SIZE = 4,
 	WIN_VALUE = 2048
 };
+
 
 int						**fill_tab(t_env *env);
 void					ft_draw_grid(int **tab);
@@ -103,5 +104,6 @@ void					ascii_2048(int y, int x);
 void					ascii_4096(int y, int x);
 void					free_env(t_env *e);
 int						play(t_env *env);
+void					printwin(int x);
 
 #endif
