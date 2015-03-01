@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 10:54:28 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 14:41:13 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:01:59 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ mvprintw(6, (x / 5), "d888b   `8888>  X888X   8888L        d8888R    d88L       
 attron(COLOR_PAIR(23));
 mvprintw(7, (x / 5), "?8888>  98888F X8888X   88888       @ 8888R    98888bu.. .@*   ");
 attron(COLOR_PAIR(24));
-mvprintw(8, (x / 5), " \"**\"  x88888~ 88888X   88888X    .P  8888R    \"88888888NNu.   ");
+mvprintw(8, (COLS / 2) - 31, " \"**\"  x88888~ 88888X   88888X    .P  8888R    \"88888888NNu.   ");
 attron(COLOR_PAIR(25));
 mvprintw(9, (x / 5), "      d8888*`  88888X   88888X   :F   8888R     \"*8888888888i  ");
 attron(COLOR_PAIR(26));
