@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 14:42:04 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:27:47 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	color_init(void)
 	init_pair(1, COLOR_WHITE, COLOR_BLACK);
 	init_pair(3, COLOR_BLACK, COLOR_WHITE);
 	init_pair(13, 0, COLOR_EMPTY);
+	init_pair(15, 0, COLOR_BG);
 	init_pair(31, COLOR_BG, COLOR_2);
 	init_pair(32, COLOR_BG, COLOR_4);
 	init_pair(33, COLOR_BG, COLOR_8);
@@ -120,16 +121,6 @@ void	color_init(void)
 	init_pair(40, COLOR_BG, COLOR_1024);
 	init_pair(41, COLOR_BG, COLOR_2048);
 	init_pair(42, COLOR_BG, COLOR_4098);
-	init_pair(2 + 10, COLOR_BG, COLOR_2);
-	init_pair(4 + 10, COLOR_BG, COLOR_4);
-	init_pair(8 + 10, COLOR_BG, COLOR_8);
-	// init_pair(16 + 10, COLOR_BG, COLOR_16); // A refaire
-	init_pair(32 + 10, COLOR_BG, COLOR_32);
-	init_pair(64 + 10, COLOR_BG, COLOR_64);
-	init_pair(128 + 10, COLOR_BG, COLOR_128);
-	init_pair(256 + 10, COLOR_BG, COLOR_256);
-	init_pair(512 + 10, COLOR_BG, COLOR_512);
-	init_pair(5 + 10, 0, COLOR_BG);
 }
 
 void	ft_init(void)

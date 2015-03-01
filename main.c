@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 16:17:15 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:12:49 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,12 @@ void		printmenu( bool sel, WINDOW *new_game, WINDOW *quit_game ) {
 	if (sel) {
 
 		wattron(new_game, COLOR_PAIR(3));
-		// wborder(new_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
-		// ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
 		mvwprintw(new_game, 1, 1 , "     New Game     ");
 		wattroff(new_game, COLOR_PAIR(3));
-		// wborder(quit_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
-		// ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
 		mvwprintw(quit_game, 1, 1 , "     Quit Game    ");
 	} else {
-		// wborder(new_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
-		// ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
 		mvwprintw(new_game, 1, 1 , "     New Game     ");
 		wattron(quit_game, COLOR_PAIR(3));
-		// wborder(quit_game, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE,
-		// ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
 		mvwprintw(quit_game, 1, 1 , "     Quit Game    ");
 		wattroff(quit_game, COLOR_PAIR(3));
 	}
@@ -108,7 +100,7 @@ void		menu(int y, int x, t_env *env) {
 	while (1)
 	{
 		ch = getch();
-		printTitle(x);
+		printtitle(x);
 		printmenu(sel, new_game, quit_game);
 
 		if (ch == KEY_UP)
