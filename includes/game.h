@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 18:24:32 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:09:22 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stdio.h>////////
 //////////////////////////
 
-# define SIZE 			7
+# define SIZE 			3
 # define EMPTY 			3
 
 # define COLOR_EMPTY	(13)
@@ -55,7 +55,7 @@ typedef struct			s_env
 
 enum 					e_const
 {
-	WIN_VALUE = 2048
+	WIN_VALUE = 4096
 };
 
 int						**fill_tab(t_env *env);

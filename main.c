@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 18:12:49 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:09:47 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,11 @@ int			main(void)
 	env->score = 0;
 	env->tab = fill_tab(env);
 	env->tab = fill_tab(env);
+
+	env->tab = (int **)malloc(sizeof(int *) * SIZE);
+
 	getmaxyx(stdscr, y_max, x_max);
 	menu(y_max, x_max, env);
+	printf("%d\n", env->score);
 	return (0);
 }
