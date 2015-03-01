@@ -6,23 +6,77 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 18:27:47 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:55:15 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
+void	getparam(int y, int x, int i, int j)
+{
+	int a;
+	int b;
+	int c;
+	int d;
+
+	a = y;
+	b = x;
+	c = i;
+	d = j;
+}
+
+void	printa(int **tab)
+{
+	getparam(y, x, i, j);
+	if (ft_strcmp(ft_itoa(tab[i][j]), "2") == 0)
+		print_2(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "4") == 0)
+		print_4(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "8") == 0)
+		print_8(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "16") == 0)
+		ascii_16(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "32") == 0)
+		ascii_32(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "64") == 0)
+		ascii_64(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "128") == 0)
+		ascii_128(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "256") == 0)
+		ascii_256(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "512") == 0)
+		ascii_512(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "1024") == 0)
+		ascii_1024(y, x);
+	else if (ft_strcmp(ft_itoa(tab[i][j]), "2048") == 0)
+		ascii_2048(y, x);
+}
+
+void	ascii_print(int **tab)
+{
+	int h;
+	int w;
+
+	getparam(y, x, i, j);
+	getmaxyx(stdscr, h, w);
+	if (h <= 35 || w <= 170)
+	{
+		attron(COLOR_PAIR(tab[i][j]));
+		mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, ft_itoa(tab[i][j]));
+		attroff(COLOR_PAIR(tab[i][j]));
+	}
+	else
+		printa(tab);
+}
+
 void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 {
 	int		y_increm;
 	int		x_increm;
-	char	*number;
 	int		x;
 	int		y;
 	int		i;
 	int		j;
-	int		h;
-	int		w;
 
 	y_increm = y_max / SIZE;
 	x_increm = x_max / SIZE;
@@ -35,40 +89,8 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 		while (j < SIZE)
 		{
 			if (tab[i][j] != 3)
-			{
-				getmaxyx(stdscr, h, w);
-				if (h <= 35 || w <= 170)
-				{
-					attron(COLOR_PAIR(tab[i][j]));
-					mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, ft_itoa(tab[i][j]));
-					attroff(COLOR_PAIR(tab[i][j]));
-				}
-				else
-				{
-					if (ft_strcmp(ft_itoa(tab[i][j]), "2") == 0)
-						print_2(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "4") == 0)
-						print_4(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "8") == 0)
-						print_8(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "16") == 0)
-						ascii_16(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "32") == 0)
-						ascii_32(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "64") == 0)
-						ascii_64(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "128") == 0)
-						ascii_128(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "256") == 0)
-						ascii_256(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "512") == 0)
-						ascii_512(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "1024") == 0)
-						ascii_1024(y, x);
-					else if (ft_strcmp(ft_itoa(tab[i][j]), "2048") == 0)
-						ascii_2048(y, x);
-				}
-			}
+				getparam(y, x, i, j);
+			ascii_print(tab);
 			x += x_increm;
 			j++;
 		}

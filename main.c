@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 18:12:49 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:34:28 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int			play(int y_max, int x_max, t_env *env)
 	int 	ch;
 
 	playing = 1;
-	int		fd;
-	fd = open("toto", O_WRONLY | O_TRUNC);
 	while (playing)
 	{
 		ret = check(env);
