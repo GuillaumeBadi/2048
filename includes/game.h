@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 18:24:32 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 19:37:02 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stdio.h>////////
 //////////////////////////
 
-# define SIZE 			7
+# define SIZE 			4
 # define EMPTY 			3
 
 # define COLOR_EMPTY	(13)

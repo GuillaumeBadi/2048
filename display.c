@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 18:59:45 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 19:43:10 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 		{
 			if (tab[i][j] != 3)
 			{
-				getmaxyx(stdscr, h, w);
-				if (h <= 35 || w <= 170)
+				 getmaxyx(stdscr, h, w);
+				 if (h <= 35 || (w / SIZE <= 34))
 				{
 					attron(COLOR_PAIR(ft_get_pair(tab[i][j])));
 					mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, ft_itoa(tab[i][j]));
@@ -66,7 +66,7 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 						ascii_1024(y, x);
 					else if (ft_strcmp(ft_itoa(tab[i][j]), "2048") == 0)
 						ascii_2048(y, x);
-				}
+				 }
 			}
 			x += x_increm;
 			j++;
