@@ -86,17 +86,17 @@ void	color_init_init(void)
 {
 	init_color(COLOR_BG, 119 * 3, 110 * 3, 101 * 3);
 	init_color(COLOR_EMPTY, 154 * 3, 142 * 3, 139 * 3);
-	init_color(COLOR_2, 255 * 3, 248 * 3, 29 * 3);
-	init_color(COLOR_4, 155 * 3, 208 * 3, 19 * 3);
-	init_color(COLOR_8, 15 * 3, 28 * 3, 239 * 3);
-	init_color(COLOR_16, 155 * 3, 208 * 3, 29 * 3);
-	init_color(COLOR_32, 15 * 3, 208 * 3, 39 * 3);
-	init_color(COLOR_64, 155 * 3, 100 * 3, 23 * 3);
-	init_color(COLOR_128, 155 * 3, 208 * 3, 239 * 3);
-	init_color(COLOR_256, 155 * 3, 208 * 3, 239 * 3);
-	init_color(COLOR_512, 155 * 3, 28 * 3, 29 * 3);
-	init_color(COLOR_1024, 155 * 3, 28 * 3, 29 * 3);
-	init_color(COLOR_2048, 155 * 3, 28 * 3, 29 * 3);
+	init_color(COLOR_2, 238 * 3, 228 * 3, 218 * 3);
+	init_color(COLOR_4, 234 * 3, 224 * 3, 200 * 3);
+	init_color(COLOR_8, 245 * 3, 149 * 3, 99 * 3);
+	init_color(COLOR_16, 255 * 3, 102 * 3, 51 * 3);
+	init_color(COLOR_32, 255 * 3, 51 * 3, 51 * 3);
+	init_color(COLOR_64, 204 * 3, 0 * 3, 0 * 3);
+	init_color(COLOR_128, 255 * 3, 204 * 3, 0 * 3);
+	init_color(COLOR_256, 255 * 3, 208 * 3, 100 * 3);
+	init_color(COLOR_512, 255 * 3, 208 * 3, 150 * 3);
+	init_color(COLOR_1024, 255 * 3, 153 * 3, 51 * 3);
+	init_color(COLOR_2048, 255 * 3, 51 * 3, 51 * 3);
 }
 
 void	color_init_pair1(void)
@@ -121,18 +121,18 @@ void	color_init_pair2(void)
 	init_pair(3, COLOR_BLACK, COLOR_WHITE);
 	init_pair(13, 0, COLOR_EMPTY);
 	init_pair(15, 0, COLOR_BG);
-	init_pair(31, COLOR_BG, COLOR_2);
-	init_pair(32, COLOR_BG, COLOR_4);
-	init_pair(33, COLOR_BG, COLOR_8);
-	init_pair(34, COLOR_BG, COLOR_16);
-	init_pair(35, COLOR_BG, COLOR_32);
-	init_pair(36, COLOR_BG, COLOR_64);
-	init_pair(37, COLOR_BG, COLOR_128);
-	init_pair(38, COLOR_BG, COLOR_256);
-	init_pair(39, COLOR_BG, COLOR_512);
-	init_pair(40, COLOR_BG, COLOR_1024);
-	init_pair(41, COLOR_BG, COLOR_2048);
-	init_pair(42, COLOR_BG, COLOR_4096);
+	init_pair(31, COLOR_BLACK, COLOR_2);
+	init_pair(32, COLOR_BLACK, COLOR_4);
+	init_pair(33, COLOR_WHITE, COLOR_8);
+	init_pair(34, COLOR_WHITE, COLOR_16);
+	init_pair(35, COLOR_WHITE, COLOR_32);
+	init_pair(36, COLOR_WHITE, COLOR_64);
+	init_pair(37, COLOR_WHITE, COLOR_128);
+	init_pair(38, COLOR_WHITE, COLOR_256);
+	init_pair(39, COLOR_WHITE, COLOR_512);
+	init_pair(40, COLOR_WHITE, COLOR_1024);
+	init_pair(41, COLOR_WHITE, COLOR_2048);
+	init_pair(42, COLOR_WHITE, COLOR_4096);
 }
 
 void	ft_init(void)

@@ -87,7 +87,7 @@ void part_3(void)
 
 void printgameover(int x)
 {
-	x = x;
+	(void)x;
 	part_1();
 	part_2();
 	part_3();

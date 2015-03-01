@@ -38,6 +38,7 @@ int			youwin(int x, t_env *env)
 {
 	int				ch;
 
+	(void)x;
 	ch = 0;
 	wclear(stdscr);
 	wrefresh(stdscr);
@@ -45,7 +46,6 @@ int			youwin(int x, t_env *env)
 	while (1)
 	{
 		ch = getch();
-		printwin(x);
 		if (ch == 'q' || ch == 'Q' || ch == 27)
 		{
 			endwin();
@@ -110,7 +110,7 @@ int			play(t_env *env)
 
 void		printtitle(int x)
 {
-	x = x;
+	(void)x;
 	attron(COLOR_PAIR(20));
 	mvprintw(4, (COLS / 2) - 31,
 		"  .--~*teu.        .n~~%%x.             xeee       u+=~~~+u.    ");

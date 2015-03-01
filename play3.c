@@ -98,7 +98,7 @@ void win2(void)
 
 void printwin(int x)
 {
-	x = x;
+	(void)x;
 	win();
 	win1();
 	win2();

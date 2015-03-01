@@ -61,8 +61,8 @@ void		menu(int x, int y, t_env *env)
 		env->tab = ft_keytrigger(ch, env);
 		play(env);
 	}
-	x = x;
-	y = y;
+	(void)x;
+	(void)y;
 	endwin();
 }
 
@@ -110,7 +110,6 @@ int			main(void)
 	srand(time(NULL));
 	ft_init();
 	env = (t_env *)malloc(sizeof(t_env));
-	// env->tab = (int **)malloc(sizeof(int *) * SIZE);
 	env->tab = make_tab();
 	env->score = 0;
 	env->tab = fill_tab(env);
