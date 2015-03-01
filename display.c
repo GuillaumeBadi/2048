@@ -6,7 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 05:44:56 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 08:01:15 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	ft_draw_bg(int **tab, int y_max, int x_max)
 		while (j < SIZE)
 		{
 			attron(COLOR_PAIR(tab[y][j] + 10));
-			i = y * (y_max / 4);
-			while (i < (y + 1) * y_max / 4)
+			i = y * (y_max / SIZE);
+			while (i < (y + 1) * y_max / SIZE)
 			{
-				mvhline(i, j * (x_max / 4) + 1, ' ', x_max / 4);
+				mvhline(i, j * (x_max / SIZE) + 1, ' ', x_max / SIZE);
 				i++;
 			}
 			attroff(COLOR_PAIR(tab[y][j] + 10));
@@ -106,6 +106,7 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 	int		y;
 	int		i;
 	int		j;
+	char	*number;
 
 	y_increm = y_max / SIZE;
 	x_increm = x_max / SIZE;
@@ -118,7 +119,8 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 		while (j < SIZE)
 		{
 			if (tab[i][j] != 3)
-				mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, ft_itoa(tab[i][j]));
+				mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, (number = ft_itoa(tab[i][j])));
+			free(number);
 			x += x_increm;
 			j++;
 		}
@@ -154,6 +156,7 @@ void	ft_init(void)
 	initscr();
 	noecho();
 	cbreak();
+	keypad(stdscr, TRUE);
 	curs_set(FALSE);
 	start_color();
 	init_color(COLOR_BG, 119 * 3, 110 * 3, 101 * 3);
@@ -165,7 +168,7 @@ void	ft_init(void)
 	init_color(COLOR_32, 15 * 3, 208 * 3, 39 * 3);
 	init_color(COLOR_64, 155 * 3, 100 * 3, 23 * 3);
 	init_color(COLOR_128, 155 * 3, 208 * 3, 239 * 3);
-	init_color(COLOR_256, 15 * 3, 28 * 3, 239 * 3);
+	init_color(COLOR_256, 155 * 3, 208 * 3, 239 * 3);
 	init_color(COLOR_512, 155 * 3, 28 * 3, 29 * 3);
 	init_pair(1, COLOR_BLACK, COLOR_WHITE);
 	init_pair(13, COLOR_BLACK, COLOR_EMPTY);
@@ -180,55 +183,3 @@ void	ft_init(void)
 	init_pair(512 + 10, COLOR_EMPTY, COLOR_512);
 	init_pair(5 + 10, 0, COLOR_BG);
 }
-
-// int		main(void)
-// {
-
-// 	int		ch;
-
-// 	ch = 0;
-// 	tab = (int **)malloc(sizeof(int *) * SIZE);
-// 	int i = 0;
-// 	while (i < SIZE)
-// 	{
-// 		tab[i] = (int *)malloc(sizeof(int) * SIZE);
-// 		int j = 0;
-// 		while (j < SIZE)
-// 		{
-// 			tab[i][j] = 3;
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	ft_init();
-// 	tab[0][0] = 2;
-// 	tab[0][1] = 4;
-// 	tab[0][2] = 8;
-// 	tab[0][3] = 16;
-
-// 	// getmaxyx(stdscr, y_max, x_max);
-
-// 	ft_draw_grid(tab);
-// 	refresh();
-// 	while (1)
-// 	{
-// 		//ch = getch();
-// 		//tab1 = ft_keyTrigger(ch);
-// 		getmaxyx(stdscr, y_new, x_new);
-// 		// une fonction qui check si ya un changement dans le int **
-// 		if ((y_new != y_max || x_new != x_max) && y_new > 16 && x_new > 16)
-// 		{
-// 			y_max = y_new;
-// 			x_max = x_new;
-// 			clear();
-// 			ft_draw_grid(tab);
-// 		}
-// 		else if (y_new <= 16 || x_new <= 16)
-// 		{
-// 			clear();
-// 			mvprintw(0, 0, "la fenettre est trop petite");
-// 		}
-// 		refresh();
-// 	}
-// 	return (0);
-// }
