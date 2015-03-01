@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 21:14:25 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:56:24 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct			s_env
 enum 					e_const
 {
 	SIZE = 4,
-	WIN_VALUE = 8
+	WIN_VALUE = 2048
 };
 
 int						**fill_tab(t_env *env);
