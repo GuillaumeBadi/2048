@@ -6,7 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 00:29:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 08:01:06 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 08:07:54 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,18 @@ int					**make_tab(void)
 	size_t			j;
 
 	i = 0;
-	if (!(tab = (int **)malloc(sizeof(int *) * (SIZE))))
+	if (!(tab = (int **)malloc(sizeof(int *) * (SIZE + 1))))
 		return (NULL);
 	while (i < SIZE)
 	{
-		tab[i] = (int *)malloc(sizeof(int) * (SIZE));
+		tab[i] = (int *)malloc(sizeof(int) * (SIZE + 1));
 		if (tab[i] == NULL)
 			return (NULL);
 		j = 0;
 		while (j < SIZE)
 			tab[i][j++] = EMPTY;
+		tab[i++][j] = 0;
 	}
+	tab[i] = 0;
 	return (tab);
 }

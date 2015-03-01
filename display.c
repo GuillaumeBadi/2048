@@ -6,7 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 08:01:15 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 08:08:59 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,11 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 {
 	int		y_increm;
 	int		x_increm;
+	char	*number;
 	int		x;
 	int		y;
 	int		i;
 	int		j;
-	char	*number;
 
 	y_increm = y_max / SIZE;
 	x_increm = x_max / SIZE;
@@ -119,8 +119,10 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 		while (j < SIZE)
 		{
 			if (tab[i][j] != 3)
+			{
 				mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, (number = ft_itoa(tab[i][j])));
-			free(number);
+				free(number);
+			}
 			x += x_increm;
 			j++;
 		}
