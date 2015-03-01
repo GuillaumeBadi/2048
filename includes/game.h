@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 05:55:29 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 10:52:03 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,6 @@ enum 					e_const
 
 int						**fill_tab(t_env *env);
 void					ft_draw_grid(int **tab);
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>;
-void					print_tab(t_env *env);
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>;
 int						**make_tab();
 int						**move_top(t_env *env);
 int						**move_bottom(t_env *env);
@@ -73,7 +70,23 @@ int						**merge_left(t_env *env);
 int						**move_right(t_env *env);
 int						**merge_right(t_env *env);
 void					ft_init(void);
-int						**ft_keyTrigger(int keyPress, t_env *env);
+int						**ft_keytrigger(int keyPress, t_env *env);
 int						check(t_env *env);
-
+void	ascii_1(int y, int x);
+void	print_2(int y, int x);
+void	ascii_3(int y, int x);
+void	print_4(int y, int x);
+void	ascii_5(int y, int x);
+void	ascii_6(int y, int x);
+void	print_8(int y, int x);
+void	ascii_9(int y, int x);
+void	ascii_16(int y, int x);
+void	ascii_32(int y, int x);
+void	ascii_64(int y, int x);
+void	ascii_128(int y, int x);
+void	ascii_256(int y, int x);
+void	ascii_512(int y, int x);
+void	ascii_1024(int y, int x);
+void	ascii_2048(int y, int x);
+void	ascii_4096(int y, int x);
 #endif

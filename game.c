@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 00:43:07 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 05:39:15 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 10:47:42 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static int			check_movement(t_env *env)
 		j = 0;
 		while (j < SIZE)
 		{
-			if ((j + 1< SIZE && env->tab[i][j] == env->tab[i][j + 1] )|| (i + 1 < SIZE && env->tab[i][j] == env->tab[i + 1][j]))
+			if ((j + 1 < SIZE && env->tab[i][j] == env->tab[i][j + 1]) ||
+				(i + 1 < SIZE && env->tab[i][j] == env->tab[i + 1][j]))
 				return (0);
 			j++;
 		}

@@ -3,100 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 05:44:56 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 10:46:42 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-
-void	ft_draw_bg(int **tab, int y_max, int x_max)
-{
-	int		y;
-	int		j;
-	int		i;
-
-	y = 0;
-	while (y < SIZE)
-	{
-		j = 0;
-		while (j < SIZE)
-		{
-			attron(COLOR_PAIR(tab[y][j] + 10));
-			i = y * (y_max / 4);
-			while (i < (y + 1) * y_max / 4)
-			{
-				mvhline(i, j * (x_max / 4) + 1, ' ', x_max / 4);
-				i++;
-			}
-			attroff(COLOR_PAIR(tab[y][j] + 10));
-			j++;
-		}
-		y++;
-	}
-}
-
-void	ft_draw_col(int y_max, int x_max)
-{
-	int		y;
-	int		x;
-
-	y = 0;
-	while (y <= y_max)
-	{
-		x = 0;
-		while (x <= x_max)
-		{
-			attron(COLOR_PAIR(15));
-			mvhline(y, x, ' ', 2);
-			x += x_max / SIZE;
-			attroff(COLOR_PAIR(15));
-		}
-		y++;
-	}
-}
-
-void	ft_draw_row(int y_max, int x_max)
-{
-	int		y;
-	int		x;
-
-	y = 0;
-	while (y <= y_max)
-	{
-		x = 0;
-		while (x <= x_max)
-		{
-			attron(COLOR_PAIR(15));
-			mvhline(y, x, ' ', 1);
-			attroff(COLOR_PAIR(15));
-			x++;
-		}
-		y += y_max / SIZE;
-	}
-}
-
-void	ft_draw_corner(int y_max, int x_max)
-{
-	int		y;
-	int		x;
-
-	y = 0;
-	while (y <= y_max)
-	{
-		x = 0;
-		while (x <= x_max)
-		{
-			attron(COLOR_PAIR(15));
-			mvhline(y, x, ' ', 1);
-			attroff(COLOR_PAIR(15));
-			x += x_max / SIZE;
-		}
-		y += y_max / SIZE;
-	}
-}
 
 void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 {
@@ -106,6 +20,8 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 	int		y;
 	int		i;
 	int		j;
+	int		h;
+	int		w;
 
 	y_increm = y_max / SIZE;
 	x_increm = x_max / SIZE;
@@ -118,7 +34,36 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 		while (j < SIZE)
 		{
 			if (tab[i][j] != 3)
-				mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, ft_itoa(tab[i][j]));
+			{
+				getmaxyx(stdscr, h, w);
+				if (h <= 35 || w <= 170)
+					mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, ft_itoa(tab[i][j]));
+				else
+				{
+					if (ft_strcmp(ft_itoa(tab[i][j]), "2") == 0)
+						print_2(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "4") == 0)
+						print_4(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "8") == 0)
+						print_8(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "16") == 0)
+						ascii_16(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "32") == 0)
+						ascii_32(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "64") == 0)
+						ascii_64(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "128") == 0)
+						ascii_128(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "256") == 0)
+						ascii_256(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "512") == 0)
+						ascii_512(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "1024") == 0)
+						ascii_1024(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "2048") == 0)
+						ascii_2048(y, x);
+				}
+			}
 			x += x_increm;
 			j++;
 		}
@@ -128,34 +73,8 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 	(void)tab;
 }
 
-void	ft_draw_grid(int **tab)
+void	color_init(void)
 {
-	int		y_max;
-	int		x_max;
-
-	getmaxyx(stdscr, y_max, x_max);
-	x_max /= SIZE;
-	y_max /= SIZE;
-	x_max *= SIZE;
-	y_max *= SIZE;
-	y_max -= SIZE;
-	x_max -= SIZE;
-
-
-	ft_draw_bg(tab, y_max, x_max);
-	ft_draw_col(y_max, x_max);
-	ft_draw_row(y_max, x_max);
-	ft_draw_corner(y_max, x_max);
-	ft_putnbr_to_grid(y_max, x_max, tab);
-}
-
-void	ft_init(void)
-{
-	initscr();
-	noecho();
-	cbreak();
-	curs_set(FALSE);
-	start_color();
 	init_color(COLOR_BG, 119 * 3, 110 * 3, 101 * 3);
 	init_color(COLOR_EMPTY, 154 * 3, 142 * 3, 139 * 3);
 	init_color(COLOR_2, 255 * 3, 248 * 3, 29 * 3);
@@ -167,7 +86,8 @@ void	ft_init(void)
 	init_color(COLOR_128, 155 * 3, 208 * 3, 239 * 3);
 	init_color(COLOR_256, 15 * 3, 28 * 3, 239 * 3);
 	init_color(COLOR_512, 155 * 3, 28 * 3, 29 * 3);
-	init_pair(1, COLOR_BLACK, COLOR_WHITE);
+	init_pair(1, COLOR_WHITE, COLOR_BLACK);
+	init_pair(4, COLOR_BLACK, COLOR_WHITE);
 	init_pair(13, COLOR_BLACK, COLOR_EMPTY);
 	init_pair(2 + 10, COLOR_EMPTY, COLOR_2);
 	init_pair(4 + 10, COLOR_EMPTY, COLOR_4);
@@ -181,54 +101,14 @@ void	ft_init(void)
 	init_pair(5 + 10, 0, COLOR_BG);
 }
 
-// int		main(void)
-// {
-
-// 	int		ch;
-
-// 	ch = 0;
-// 	tab = (int **)malloc(sizeof(int *) * SIZE);
-// 	int i = 0;
-// 	while (i < SIZE)
-// 	{
-// 		tab[i] = (int *)malloc(sizeof(int) * SIZE);
-// 		int j = 0;
-// 		while (j < SIZE)
-// 		{
-// 			tab[i][j] = 3;
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	ft_init();
-// 	tab[0][0] = 2;
-// 	tab[0][1] = 4;
-// 	tab[0][2] = 8;
-// 	tab[0][3] = 16;
-
-// 	// getmaxyx(stdscr, y_max, x_max);
-
-// 	ft_draw_grid(tab);
-// 	refresh();
-// 	while (1)
-// 	{
-// 		//ch = getch();
-// 		//tab1 = ft_keyTrigger(ch);
-// 		getmaxyx(stdscr, y_new, x_new);
-// 		// une fonction qui check si ya un changement dans le int **
-// 		if ((y_new != y_max || x_new != x_max) && y_new > 16 && x_new > 16)
-// 		{
-// 			y_max = y_new;
-// 			x_max = x_new;
-// 			clear();
-// 			ft_draw_grid(tab);
-// 		}
-// 		else if (y_new <= 16 || x_new <= 16)
-// 		{
-// 			clear();
-// 			mvprintw(0, 0, "la fenettre est trop petite");
-// 		}
-// 		refresh();
-// 	}
-// 	return (0);
-// }
+void	ft_init(void)
+{
+	initscr();
+	noecho();
+	cbreak();
+	keypad(stdscr, TRUE);
+	nodelay(stdscr, TRUE);
+	curs_set(FALSE);
+	start_color();
+	color_init();
+}
