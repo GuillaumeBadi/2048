@@ -6,7 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 23:37:17 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 23:40:53 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ enum					e_const
 	WIN_VALUE = 2048
 };
 
-
 int						**fill_tab(t_env *env);
 void					ft_draw_grid(int **tab);
 int						**make_tab();
@@ -107,5 +106,7 @@ int						play(t_env *env);
 void					printwin(int x);
 int						ft_print_tout(int val, int x, int y);
 void					color_init_init(void);
+void					gameover(int x);
+void					printtitle(int x);
 
 #endif
