@@ -25,8 +25,7 @@
 # include <stdio.h>////////
 //////////////////////////
 
-# define SIZE 			4
-# define EMPTY 			3
+# define EMPTY 				3
 
 # define COLOR_EMPTY	(13)
 # define COLOR_BG		(15)
@@ -55,6 +54,7 @@ typedef struct			s_env
 
 enum 					e_const
 {
+	SIZE = 4,
 	WIN_VALUE = 2048
 };
 

@@ -124,6 +124,30 @@ void		menu(int y, int x, t_env *env) {
 	endwin();
 }
 
+int			ft_pow(int b, int n)
+{
+	if (n == 0)
+		return (1);
+	else if (n == 1)
+		return (b);
+	else
+		return (b * ft_pow(b, n - 1));
+}
+
+int			ft_check_win_value(void)
+{
+	int		i;
+	
+	i = 0;
+	while (i < 31)
+	{
+		if (ft_pow(2, i) == WIN_VALUE)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int			main(void)
 {
 
@@ -131,13 +155,18 @@ int			main(void)
 	int		y_max;
 	int		x_max;
 
-	srand(time(NULL));
-	ft_init();
-	if (WIN_VALUE % 2)
+	if (!ft_check_win_value())
 	{
-		ft_putendl("Please use a power of two as the win value");
+		ft_putendl_fd("Please use a power of two as the win value", 2);
 		return (-1);
 	}
+	if (SIZE < 1 || SIZE > 10)
+	{
+		ft_putendl_fd("Please use a size between 1 - 10", 2);
+		return (1);
+	}
+	srand(time(NULL));
+	ft_init();
 	env = (t_env *)malloc(sizeof(t_env));
 	env->tab = make_tab();
 	env->score = 0;
