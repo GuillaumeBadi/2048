@@ -6,7 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 23:32:43 by bdurst           ###   ########.fr       */
+/*   Updated: 2015/03/01 23:37:17 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,7 @@ void					ascii_4096(int y, int x);
 void					free_env(t_env *e);
 int						play(t_env *env);
 void					printwin(int x);
+int						ft_print_tout(int val, int x, int y);
+void					color_init_init(void);
 
 #endif
