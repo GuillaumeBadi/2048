@@ -6,61 +6,58 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 21:35:44 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 23:31:12 by bdurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-void		printmenu( bool sel, WINDOW *new_game, WINDOW *quit_game ) {
-	if (sel) {
-
+void		printmenu(int *sel, WINDOW *new_game, WINDOW *quit_game, int ch)
+{
+	if (*sel)
+	{
 		wattron(new_game, COLOR_PAIR(3));
-		mvwprintw(new_game, 1, 1 , "     New Game     ");
+		mvwprintw(new_game, 1, 1, "     New Game     ");
 		wattroff(new_game, COLOR_PAIR(3));
-		mvwprintw(quit_game, 1, 1 , "     Quit Game    ");
-	} else {
-		mvwprintw(new_game, 1, 1 , "     New Game     ");
+		mvwprintw(quit_game, 1, 1, "     Quit Game    ");
+	}
+	else
+	{
+		mvwprintw(new_game, 1, 1, "     New Game     ");
 		wattron(quit_game, COLOR_PAIR(3));
-		mvwprintw(quit_game, 1, 1 , "     Quit Game    ");
+		mvwprintw(quit_game, 1, 1, "     Quit Game    ");
 		wattroff(quit_game, COLOR_PAIR(3));
 	}
+	if (ch == KEY_UP)
+		*sel = 1;
+	else if (ch == KEY_DOWN)
+		*sel = 0;
 }
-
-
 
 void		menu(int y, int x, t_env *env)
 {
-	int		ch = 10;
-	bool	sel = true;
-	WINDOW	*new_game = newwin(30, 20 , 17, (x / 2) - 10);
-	WINDOW	*quit_game = newwin(30, 20, 20, (x / 2) - 10);
+	int		sel;
+	WINDOW	*new_game;
+	WINDOW	*quit_game;
 
+	new_game = newwin(30, 20, 17, (x / 2) - 10);
+	quit_game = newwin(30, 20, 20, (x / 2) - 10);
+	sel = 1;
 	while (1)
 	{
-		ch = getch();
+		env->ch = getch();
 		printtitle(x);
-		printmenu(sel, new_game, quit_game);
-
-		if (ch == KEY_UP)
-			sel = true;
-		else if (ch == KEY_DOWN)
-			sel = false;
-		else if (ch == 10)
-			break;
-		if (ch == 27)
-			break;
+		printmenu(&sel, new_game, quit_game, env->ch);
+		if (env->ch == 10 || env->ch == 27)
+			break ;
 		wrefresh(stdscr);
 		wrefresh(new_game);
 		wrefresh(quit_game);
 	}
 	delwin(new_game);
 	delwin(quit_game);
-	if (sel)
-	{
-		env->tab = ft_keytrigger(ch, env);
+	if (sel && ((env->tab = ft_keytrigger(env->ch, env))))
 		play(env);
-	}
 	endwin();
 }
 
@@ -90,7 +87,6 @@ int			ft_check_win_value(void)
 
 int			main(void)
 {
-
 	t_env	*env;
 	int		y_max;
 	int		x_max;
@@ -108,7 +104,6 @@ int			main(void)
 	srand(time(NULL));
 	ft_init();
 	env = (t_env *)malloc(sizeof(t_env));
-	// env->tab = (int **)malloc(sizeof(int *) * SIZE);
 	env->tab = make_tab();
 	env->score = 0;
 	env->tab = fill_tab(env);
@@ -116,6 +111,5 @@ int			main(void)
 	env->win = 0;
 	getmaxyx(stdscr, y_max, x_max);
 	menu(y_max, x_max, env);
-	printf("%d\n", env->score);
 	return (0);
 }
