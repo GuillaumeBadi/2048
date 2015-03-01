@@ -6,68 +6,11 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 18:55:15 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:59:45 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-
-void	getparam(int y, int x, int i, int j)
-{
-	int a;
-	int b;
-	int c;
-	int d;
-
-	a = y;
-	b = x;
-	c = i;
-	d = j;
-}
-
-void	printa(int **tab)
-{
-	getparam(y, x, i, j);
-	if (ft_strcmp(ft_itoa(tab[i][j]), "2") == 0)
-		print_2(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "4") == 0)
-		print_4(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "8") == 0)
-		print_8(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "16") == 0)
-		ascii_16(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "32") == 0)
-		ascii_32(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "64") == 0)
-		ascii_64(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "128") == 0)
-		ascii_128(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "256") == 0)
-		ascii_256(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "512") == 0)
-		ascii_512(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "1024") == 0)
-		ascii_1024(y, x);
-	else if (ft_strcmp(ft_itoa(tab[i][j]), "2048") == 0)
-		ascii_2048(y, x);
-}
-
-void	ascii_print(int **tab)
-{
-	int h;
-	int w;
-
-	getparam(y, x, i, j);
-	getmaxyx(stdscr, h, w);
-	if (h <= 35 || w <= 170)
-	{
-		attron(COLOR_PAIR(tab[i][j]));
-		mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, ft_itoa(tab[i][j]));
-		attroff(COLOR_PAIR(tab[i][j]));
-	}
-	else
-		printa(tab);
-}
 
 void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 {
@@ -77,6 +20,8 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 	int		y;
 	int		i;
 	int		j;
+	int		h;
+	int		w;
 
 	y_increm = y_max / SIZE;
 	x_increm = x_max / SIZE;
@@ -89,8 +34,40 @@ void	ft_putnbr_to_grid(int y_max, int x_max, int **tab)
 		while (j < SIZE)
 		{
 			if (tab[i][j] != 3)
-				getparam(y, x, i, j);
-			ascii_print(tab);
+			{
+				getmaxyx(stdscr, h, w);
+				if (h <= 35 || w <= 170)
+				{
+					attron(COLOR_PAIR(ft_get_pair(tab[i][j])));
+					mvprintw(y, x - ft_intlen(tab[i][j]) / 2 + 1, ft_itoa(tab[i][j]));
+					attroff(COLOR_PAIR(ft_get_pair(tab[i][j])));
+				}
+				else
+				{
+					if (ft_strcmp(ft_itoa(tab[i][j]), "2") == 0)
+						print_2(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "4") == 0)
+						print_4(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "8") == 0)
+						print_8(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "16") == 0)
+						ascii_16(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "32") == 0)
+						ascii_32(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "64") == 0)
+						ascii_64(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "128") == 0)
+						ascii_128(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "256") == 0)
+						ascii_256(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "512") == 0)
+						ascii_512(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "1024") == 0)
+						ascii_1024(y, x);
+					else if (ft_strcmp(ft_itoa(tab[i][j]), "2048") == 0)
+						ascii_2048(y, x);
+				}
+			}
 			x += x_increm;
 			j++;
 		}
@@ -113,6 +90,8 @@ void	color_init(void)
 	init_color(COLOR_128, 155 * 3, 208 * 3, 239 * 3);
 	init_color(COLOR_256, 155 * 3, 208 * 3, 239 * 3);
 	init_color(COLOR_512, 155 * 3, 28 * 3, 29 * 3);
+	init_color(COLOR_1024, 155 * 3, 28 * 3, 29 * 3);
+	init_color(COLOR_2048, 155 * 3, 28 * 3, 29 * 3);
 	init_pair(10, 231, COLOR_BLACK);
 	init_pair(20, 251, COLOR_BLACK);
 	init_pair(21, 249, COLOR_BLACK);
@@ -127,26 +106,20 @@ void	color_init(void)
 	init_pair(30, 232, COLOR_BLACK);
 	init_pair(1, COLOR_WHITE, COLOR_BLACK);
 	init_pair(3, COLOR_BLACK, COLOR_WHITE);
-	init_pair(2, COLOR_BG, COLOR_2);
-	init_pair(4, COLOR_BG, COLOR_4);
-	init_pair(8, COLOR_BG, COLOR_8);
-	init_pair(16, COLOR_BG, COLOR_16);
-	init_pair(32, COLOR_BG, COLOR_32);
-	init_pair(64, COLOR_BG, COLOR_64);
-	init_pair(128, COLOR_BG, COLOR_128);
-	init_pair(256, COLOR_BG, COLOR_256);
-	init_pair(512, COLOR_BG, COLOR_512);
-	init_pair(13, COLOR_BLACK, COLOR_EMPTY);
-	init_pair(2 + 10, COLOR_BG, COLOR_2);
-	init_pair(4 + 10, COLOR_BG, COLOR_4);
-	init_pair(8 + 10, COLOR_BG, COLOR_8);
-	// init_pair(16 + 10, COLOR_BG, COLOR_16); // A refaire
-	init_pair(32 + 10, COLOR_BG, COLOR_32);
-	init_pair(64 + 10, COLOR_BG, COLOR_64);
-	init_pair(128 + 10, COLOR_BG, COLOR_128);
-	init_pair(256 + 10, COLOR_BG, COLOR_256);
-	init_pair(512 + 10, COLOR_BG, COLOR_512);
-	init_pair(5 + 10, 0, COLOR_BG);
+	init_pair(13, 0, COLOR_EMPTY);
+	init_pair(15, 0, COLOR_BG);
+	init_pair(31, COLOR_BG, COLOR_2);
+	init_pair(32, COLOR_BG, COLOR_4);
+	init_pair(33, COLOR_BG, COLOR_8);
+	init_pair(34, COLOR_BG, COLOR_16);
+	init_pair(35, COLOR_BG, COLOR_32);
+	init_pair(36, COLOR_BG, COLOR_64);
+	init_pair(37, COLOR_BG, COLOR_128);
+	init_pair(38, COLOR_BG, COLOR_256);
+	init_pair(39, COLOR_BG, COLOR_512);
+	init_pair(40, COLOR_BG, COLOR_1024);
+	init_pair(41, COLOR_BG, COLOR_2048);
+	init_pair(42, COLOR_BG, COLOR_4098);
 }
 
 void	ft_init(void)

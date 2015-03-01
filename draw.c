@@ -12,6 +12,8 @@
 
 #include "game.h"
 
+
+
 void	ft_draw_bg(int **tab, int y_max, int x_max)
 {
 	int		y;
@@ -24,14 +26,14 @@ void	ft_draw_bg(int **tab, int y_max, int x_max)
 		j = 0;
 		while (j < SIZE)
 		{
-			attron(COLOR_PAIR(tab[y][j] + 10));
+			attron(COLOR_PAIR(ft_get_pair(tab[y][j])));
 			i = y * (y_max / SIZE);
 			while (i < (y + 1) * y_max / SIZE)
 			{
 				mvhline(i, j * (x_max / SIZE) + 1, ' ', x_max / SIZE);
 				i++;
 			}
-			attroff(COLOR_PAIR(tab[y][j] + 10));
+			attroff(COLOR_PAIR(ft_get_pair(tab[y][j])));
 			j++;
 		}
 		y++;

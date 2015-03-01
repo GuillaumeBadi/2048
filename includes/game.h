@@ -25,23 +25,23 @@
 # include <stdio.h>////////
 //////////////////////////
 
-# define SIZE 			1
+# define SIZE 			7
 # define EMPTY 			3
 
-# define COLOR_EMPTY	(3 + 10)
-# define COLOR_BG		(5 + 10)
-# define COLOR_2		(2 + 10)
-# define COLOR_4		(4 + 10)
-# define COLOR_8		(8 + 10)
-# define COLOR_16		(16 + 10)
-# define COLOR_32		(32 + 10)
-# define COLOR_64		(64 + 10)
-# define COLOR_128		(128 + 10)
-# define COLOR_256		(256 + 10)
-# define COLOR_512		(512 + 10)
-# define COLOR_1024		(1024 + 10)
-# define COLOR_2048		(2048 + 10)
-# define COLOR_4098		(4098 + 10)
+# define COLOR_EMPTY	(13)
+# define COLOR_BG		(15)
+# define COLOR_2		(31)
+# define COLOR_4		(32)
+# define COLOR_8		(33)
+# define COLOR_16		(34)
+# define COLOR_32		(35)
+# define COLOR_64		(36)
+# define COLOR_128		(37)
+# define COLOR_256		(38)
+# define COLOR_512		(39)
+# define COLOR_1024		(40)
+# define COLOR_2048		(41)
+# define COLOR_4098		(42)
 
 # define TWO_RATIO 		8
 
@@ -74,8 +74,10 @@ int						**ft_keytrigger(int keyPress, t_env *env);
 int						check(t_env *env);
 void					ft_putnbr_to_grid(int y_max, int x_max, int **tab);
 void					gameover(int x);
+int						ft_get_pair(int val);
 void					printtitle(int x);
 void					printgameover(int x);
+
 
 void	print_2(int y, int x);
 void	print_8(int y, int x);
