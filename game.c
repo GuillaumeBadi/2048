@@ -6,31 +6,33 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 00:43:07 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 01:24:24 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 05:39:15 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algorithme.h"
+#include "game.h"
 
-static int			check_movement(int **tab)
+static int			check_movement(t_env *env)
 {
 	int				i;
 	int				j;
 
-	i = -1;
-	while (++i < SIZE - 1)
+	i = 0;
+	while (i < SIZE)
 	{
-		j = -1;
-		while (++j < SIZE - 1)
+		j = 0;
+		while (j < SIZE)
 		{
-			if (tab[i][j] == tab[i][j + 1] || tab[i][j] == tab[i + 1][j])
+			if ((j + 1< SIZE && env->tab[i][j] == env->tab[i][j + 1] )|| (i + 1 < SIZE && env->tab[i][j] == env->tab[i + 1][j]))
 				return (0);
+			j++;
 		}
+		i++;
 	}
 	return (-1);
 }
 
-int					check(int **tab)
+int					check(t_env *env)
 {
 	int				max;
 	int				i;
@@ -39,18 +41,19 @@ int					check(int **tab)
 
 	i = -1;
 	max = 0;
+	vide = 0;
 	while (++i < SIZE)
 	{
 		j = -1;
 		while (++j < SIZE)
 		{
-			max = (max > tab[i][j]) ? max : tab[i][j];
-			vide = (tab[i][j] == EMPTY) ? 1 : 0;
+			max = (max > env->tab[i][j]) ? max : env->tab[i][j];
+			vide = (env->tab[i][j] == EMPTY) ? 1 : vide;
 		}
 	}
 	if (max == WIN_VALUE)
 		return (1);
-	if (!vide)
-		return (check_movement(tab));
+	if (vide == 0)
+		return (check_movement(env));
 	return (0);
 }

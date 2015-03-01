@@ -6,13 +6,13 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 00:28:40 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 01:30:13 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 06:00:10 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "agorithme.h"
+#include "game.h"
 
-int					**move_botom(int **tab)
+int					**move_bottom(t_env *env)
 {
 	int				i;
 	int				j;
@@ -26,19 +26,20 @@ int					**move_botom(int **tab)
 		{
 			k = 0;
 			while (i + k + 1 < SIZE
-				&& tab[i][j] != EMPTY && tab[i + k + 1][j] == EMPTY)
+				&& env->tab[i][j] != EMPTY && env->tab[i + k + 1][j] == EMPTY)
 				k++;
 			if (k)
 			{
-				tab[i + k][j] = tab[i][j];
-				tab[i][j] = EMPTY;
+				env->pop = k;
+				env->tab[i + k][j] = env->tab[i][j];
+				env->tab[i][j] = EMPTY;
 			}
 		}
 	}
-	return (tab);
+	return (env->tab);
 }
 
-int					**merge_botom(int **tab)
+int					**merge_bottom(t_env *env)
 {
 	int				i;
 	int				j;
@@ -49,17 +50,17 @@ int					**merge_botom(int **tab)
 		i = SIZE;
 		while (--i > 0)
 		{
-			if (tab[i][j] != EMPTY && tab[i - 1][j] == tab[i][j])
+			if (env->tab[i][j] != EMPTY && env->tab[i - 1][j] == env->tab[i][j])
 			{
-				tab[i - 1][j] *= 2;
-				tab[i][j] = EMPTY;
+				env->tab[i - 1][j] *= 2;
+				env->tab[i][j] = EMPTY;
 			}
 		}
 	}
-	return (tab);
+	return (env->tab);
 }
 
-int					**move_top(int **tab)
+int					**move_top(t_env *env)
 {
 	int				i;
 	int				j;
@@ -73,19 +74,20 @@ int					**move_top(int **tab)
 		{
 			k = 0;
 			while (i - k - 1 >= 0
-				&& tab[i][j] != EMPTY && tab[i - k - 1][j] == EMPTY)
+				&& env->tab[i][j] != EMPTY && env->tab[i - k - 1][j] == EMPTY)
 				k++;
 			if (k)
 			{
-				tab[i - k][j] = tab[i][j];
-				tab[i][j] = EMPTY;
+				env->pop = k;
+				env->tab[i - k][j] = env->tab[i][j];
+				env->tab[i][j] = EMPTY;
 			}
 		}
 	}
-	return (tab);
+	return (env->tab);
 }
 
-int					**merge_top(int **tab)
+int					**merge_top(t_env *env)
 {
 	int				i;
 	int				j;
@@ -96,12 +98,12 @@ int					**merge_top(int **tab)
 		i = -1;
 		while (++i < SIZE - 1)
 		{
-			if (tab[i][j] != EMPTY && tab[i + 1][j] == tab[i][j])
+			if (env->tab[i][j] != EMPTY && env->tab[i + 1][j] == env->tab[i][j])
 			{
-				tab[i][j] = tab[i + 1][j] * 2;
-				tab[i + 1][j] = EMPTY;
+				env->tab[i][j] = env->tab[i + 1][j] * 2;
+				env->tab[i + 1][j] = EMPTY;
 			}
 		}
 	}
-	return (tab);
+	return (env->tab);
 }

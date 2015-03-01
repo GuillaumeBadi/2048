@@ -1,50 +1,81 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tab.c                                              :+:      :+:    :+:   */
+/*   env->tab.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 00:29:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 00:42:16 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 05:50:45 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algorithme.h"
+#include "game.h"
 
-int					**fill_tab(int **tab)
+int					full(t_env *env)
+{
+	int				i;
+	int				j;
+
+	i = 0;
+	while (i < SIZE)
+	{
+		j = 0;
+		while (j < SIZE)
+		{
+			if (env->tab[i][j] == EMPTY)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int					**fill_tab(t_env *env)
 {
 	int				x;
 	int				y;
 
-	x = rand() % 4;
-	y = rand() % 4;
-	if (tab[x][y] != 3)
-		return (fill_tab(tab));
+	x = rand() % SIZE;
+	y = rand() % SIZE;
+	if (env->tab[x][y] != EMPTY)
+	{
+		if (!full(env))
+		{
+			return (fill_tab(env));
+		}
+	}
 	else
 	{
-		tab[x][y] = (rand() % 11 > TWO_RATIO) ? 4 : 2;
-		return (tab);
+		env->tab[x][y] = (rand() % 11 > TWO_RATIO) ? 4 : 2;
+		return (env->tab);
 	}
+	return (env->tab);
 }
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-void				print_tab(int **tab)
+void				print_tab(t_env *env)
 {
 	size_t			i;
 	size_t			j;
+	int				fd;
 
 	i = 0;
-	while (tab[i])
+	// fd = open("log.txt", O_CREAT | O_RDWR | O_APPEND, 644);
+	fd =1;
+	while (env->tab[i])
 	{
 		j = 0;
-		while (tab[i][j])
+		while (env->tab[i][j])
 		{
-			dprintf(1, "%d ", (tab[i][j] == EMPTY) ? 0 : tab[i][j]);
+			// dprintf(fd, "%d ", (env->tab[i][j] == EMPTY) ? 0 : env->tab[i][j]);
 			j++;
 		}
-		write(1, "\n", 1);
+		write(fd, "\n", 1);
 		i++;
 	}
+	write(fd, "\n", 1);
+	// close(fd);
 }
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 int					**make_tab(void)

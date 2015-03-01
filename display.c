@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 02:11:53 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 05:44:56 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,78 +158,77 @@ void	ft_init(void)
 	start_color();
 	init_color(COLOR_BG, 119 * 3, 110 * 3, 101 * 3);
 	init_color(COLOR_EMPTY, 154 * 3, 142 * 3, 139 * 3);
-	init_color(COLOR_2, 255 * 3, 248 * 3, 239 * 3);
-	init_color(COLOR_4, 155 * 3, 208 * 3, 239 * 3);
-	init_color(COLOR_8, 155 * 3, 208 * 3, 239 * 3);
-	init_color(COLOR_16, 155 * 3, 208 * 3, 239 * 3);
-	init_color(COLOR_32, 155 * 3, 208 * 3, 239 * 3);
-	init_color(COLOR_64, 155 * 3, 208 * 3, 239 * 3);
+	init_color(COLOR_2, 255 * 3, 248 * 3, 29 * 3);
+	init_color(COLOR_4, 155 * 3, 208 * 3, 19 * 3);
+	init_color(COLOR_8, 15 * 3, 28 * 3, 239 * 3);
+	init_color(COLOR_16, 155 * 3, 208 * 3, 29 * 3);
+	init_color(COLOR_32, 15 * 3, 208 * 3, 39 * 3);
+	init_color(COLOR_64, 155 * 3, 100 * 3, 23 * 3);
 	init_color(COLOR_128, 155 * 3, 208 * 3, 239 * 3);
-	init_color(COLOR_256, 155 * 3, 208 * 3, 239 * 3);
-	init_color(COLOR_512, 155 * 3, 208 * 3, 239 * 3);
+	init_color(COLOR_256, 15 * 3, 28 * 3, 239 * 3);
+	init_color(COLOR_512, 155 * 3, 28 * 3, 29 * 3);
 	init_pair(1, COLOR_BLACK, COLOR_WHITE);
 	init_pair(13, COLOR_BLACK, COLOR_EMPTY);
 	init_pair(2 + 10, COLOR_EMPTY, COLOR_2);
 	init_pair(4 + 10, COLOR_EMPTY, COLOR_4);
-	init_pair(8 + 10, COLOR_EMPTY, COLOR_4);
-	init_pair(16 + 10, COLOR_EMPTY, COLOR_4);
-	init_pair(32 + 10, COLOR_EMPTY, COLOR_4);
-	init_pair(64 + 10, COLOR_EMPTY, COLOR_4);
-	init_pair(128 + 10, COLOR_EMPTY, COLOR_4);
-	init_pair(256 + 10, COLOR_EMPTY, COLOR_4);
-	init_pair(512 + 10, COLOR_EMPTY, COLOR_4);
+	init_pair(8 + 10, COLOR_EMPTY, COLOR_8);
+	init_pair(16 + 10, COLOR_EMPTY, COLOR_16);
+	init_pair(32 + 10, COLOR_EMPTY, COLOR_32);
+	init_pair(64 + 10, COLOR_EMPTY, COLOR_64);
+	init_pair(128 + 10, COLOR_EMPTY, COLOR_128);
+	init_pair(256 + 10, COLOR_EMPTY, COLOR_256);
+	init_pair(512 + 10, COLOR_EMPTY, COLOR_512);
 	init_pair(5 + 10, 0, COLOR_BG);
 }
 
-int		main(void)
-{
+// int		main(void)
+// {
 
-	int		ch;
+// 	int		ch;
 
-	ch = 0;
-	tab = (int **)malloc(sizeof(int *) * SIZE);
-	int i = 0;
-	while (i < SIZE)
-	{
-		tab[i] = (int *)malloc(sizeof(int) * SIZE);
-		int j = 0;
-		while (j < SIZE)
-		{
-			tab[i][j] = 3;
-			j++;
-		}
-		i++;
-	}
-	ft_init();
-	tab[0][0] = 2;
-	tab[0][1] = 4;
-	tab[0][2] = 8;
-	tab[0][3] = 16;
+// 	ch = 0;
+// 	tab = (int **)malloc(sizeof(int *) * SIZE);
+// 	int i = 0;
+// 	while (i < SIZE)
+// 	{
+// 		tab[i] = (int *)malloc(sizeof(int) * SIZE);
+// 		int j = 0;
+// 		while (j < SIZE)
+// 		{
+// 			tab[i][j] = 3;
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	ft_init();
+// 	tab[0][0] = 2;
+// 	tab[0][1] = 4;
+// 	tab[0][2] = 8;
+// 	tab[0][3] = 16;
 
-	// getmaxyx(stdscr, y_max, x_max);
+// 	// getmaxyx(stdscr, y_max, x_max);
 
-	ft_draw_grid(tab);
-	refresh();
-	while (1)
-	{
-		//ch = getch();
-		//tab1 = ft_keyTrigger(ch);
-		getmaxyx(stdscr, y_new, x_new);
-		// une fonction qui check si ya un changement dans le int **
-		if ((y_new != y_max || x_new != x_max) && y_new > 16 && x_new > 16)
-		{
-			y_max = y_new;
-			x_max = x_new;
-			clear();
-			ft_draw_grid(tab);
-		}
-		else if (y_new <= 16 || x_new <= 16)
-		{
-			clear();
-			mvprintw(0, 0, "la fenettre est trop petite");
-		}
-		refresh();
-	}
-	endwin();
-	return (0);
-}
+// 	ft_draw_grid(tab);
+// 	refresh();
+// 	while (1)
+// 	{
+// 		//ch = getch();
+// 		//tab1 = ft_keyTrigger(ch);
+// 		getmaxyx(stdscr, y_new, x_new);
+// 		// une fonction qui check si ya un changement dans le int **
+// 		if ((y_new != y_max || x_new != x_max) && y_new > 16 && x_new > 16)
+// 		{
+// 			y_max = y_new;
+// 			x_max = x_new;
+// 			clear();
+// 			ft_draw_grid(tab);
+// 		}
+// 		else if (y_new <= 16 || x_new <= 16)
+// 		{
+// 			clear();
+// 			mvprintw(0, 0, "la fenettre est trop petite");
+// 		}
+// 		refresh();
+// 	}
+// 	return (0);
+// }

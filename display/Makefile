@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+         #
+#    By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 05:41:35 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/28 08:17:43 by dvolberg         ###   ########.fr        #
+#    Updated: 2015/03/01 02:11:50 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 NAME = game_2048
 SRC = main.c
 DIR_H = ./includes
-HEADERS = $(DIR_H)/display.h \
+HEADERS = $(DIR_H)/game.h \
 		 $(DIR_H)/libft.h \
 		 $(DIR_H)/get_next_line.h
 OBJ = $(SRC:%.c=%.o)
