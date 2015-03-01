@@ -6,7 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 08:09:39 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 08:11:11 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ int					main(void)
 		if (ret == -1)
 		{
 			playing = 0;
-			free_env(env);
+			// free_env(env);
 			return (-1);
 		}
 		else if (ret == 1)
 		{
 			playing = 0;
-			free_env(env);
+			// free_env(env);
 			return (42);
 		}
 		getmaxyx(stdscr, y_new, x_new);
@@ -70,7 +70,7 @@ int					main(void)
 		ch = getch();
 		if (ch == 27)
 		{
-			free_env(env);
+			// free_env(env);
 			return (1);
 		}
 		env->tab = ft_keyTrigger(ch, env);
