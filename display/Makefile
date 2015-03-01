@@ -14,7 +14,7 @@ CC = gcc
 NAME = game_2048
 SRC = main.c
 DIR_H = ./includes
-HEADERS = $(DIR_H)/rush.h \
+HEADERS = $(DIR_H)/display.h \
 		 $(DIR_H)/libft.h \
 		 $(DIR_H)/get_next_line.h
 OBJ = $(SRC:%.c=%.o)
