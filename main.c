@@ -35,23 +35,28 @@ void		printmenu( bool sel, WINDOW *new_game, WINDOW *quit_game ) {
 	}
 }
 
-int			play(int y_max, int x_max, t_env *env)
+int			play(t_env *env)
 {
 	char	playing;
 	int		y_new;
 	int		x_new;
+	int		y_max;
+	int		x_max;
 	int		ret;
 	int 	ch;
 
 	playing = 1;
 	int fd;
 	fd = open("pd", O_RDWR | O_APPEND);
+
+		getmaxyx(stdscr, y_max, x_max);
+		ft_draw_grid(env->tab);
+		refresh();
 	while (playing)
 	{
 		getmaxyx(stdscr, y_new, x_new);
 		if (y_new != y_max || x_new != x_max)
 		{
-			dprintf(fd, "%s\n", "============================");
 			y_max = y_new;
 			x_max = x_new;
 			clear();
@@ -88,6 +93,8 @@ int			play(int y_max, int x_max, t_env *env)
 			env->tab = ft_keytrigger(ch, env);
 			ft_draw_grid(env->tab);
 		}
+
+		refresh();
 	}
 	return(0);
 }
@@ -121,8 +128,7 @@ void		menu(int y, int x, t_env *env) {
 	if (sel)
 	{
 		env->tab = ft_keytrigger(ch, env);
-		ft_draw_grid(env->tab);
-		play(y, x, env);
+		play(env);
 	}
 	endwin();
 }
