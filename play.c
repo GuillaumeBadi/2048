@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   play.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 10:54:28 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 21:13:01 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:58:17 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-void part2(void)
+void		part2(void)
 {
 	attron(COLOR_PAIR(25));
 	mvprintw(9, (COLS / 2) - 31,
@@ -34,7 +34,81 @@ void part2(void)
 		" \"\"    \"**\"`       ^\"===\"`         \"*%%%%%%%%%%%%**~    ^\"==");
 }
 
-void printtitle(int x)
+int			youwin(int x, t_env *env)
+{
+	int				ch;
+
+	ch = 0;
+	wclear(stdscr);
+	wrefresh(stdscr);
+	env->win = 1;
+	while (1)
+	{
+		ch = getch();
+		printwin(x);
+		if (ch == 'q' || ch == 'Q' || ch == 27)
+		{
+			endwin();
+			ft_draw_grid(env->tab);
+			return (0);
+		}
+		if (ch == 10)
+		{
+			wclear(stdscr);
+			ft_draw_grid(env->tab);
+			return (1);
+		}
+		refresh();
+	}
+	return (0);
+}
+
+void		ft_do(t_env *env)
+{
+	env->y_max = env->y_new;
+	env->x_max = env->x_new;
+	clear();
+	ft_draw_grid(env->tab);
+}
+
+int			ft_pour_le_win_mec(t_env *env)
+{
+	if (env->win == 0)
+		env->status = youwin(env->x_max, env);
+	if (env->status == 0)
+		return (42);
+	return (0);
+}
+
+int			play(t_env *env)
+{
+	wclear(stdscr);
+	getmaxyx(stdscr, env->y_max, env->x_max);
+	ft_draw_grid(env->tab);
+	refresh();
+	while (1)
+	{
+		getmaxyx(stdscr, env->y_new, env->x_new);
+		if (env->y_new != env->y_max || env->x_new != env->x_max)
+			ft_do(env);
+		env->ret = check(env);
+		if (env->ret == -1)
+		{
+			gameover(env->x_max);
+			return (-1);
+		}
+		else if (env->ret == 1)
+			if (ft_pour_le_win_mec(env) == 42)
+				return (42);
+		env->ch = getch();
+		if (env->ch != -1)
+			env->tab = ft_keytrigger(env->ch, env);
+		refresh();
+	}
+	return (0);
+}
+
+void		printtitle(int x)
 {
 	attron(COLOR_PAIR(20));
 	mvprintw(4, (COLS / 2) - 31,
@@ -54,38 +128,9 @@ void printtitle(int x)
 	part2();
 }
 
-int youwin(int x, t_env *env)
+void		gameover(int x)
 {
-	int ch;
-
-
-	ch = 0;
-	wclear(stdscr);
-	wrefresh(stdscr);
-	env->win = 1;
-	while (1)
-	{
-		ch = getch();
-		printwin(x);
-		if (ch == 'q' || ch == 'Q' || ch == 27)
-		{
-			// printf("==========");
-			endwin();
-			return (0);
-		}
-		if (ch == 10)
-		{
-			wclear(stdscr);
-			// play(env);
-			return (1);
-		}
-		refresh();
-	}
-}
-
-void gameover(int x)
-{
-	int ch;
+	int				ch;
 
 	ch = 0;
 	wclear(stdscr);
@@ -97,7 +142,7 @@ void gameover(int x)
 		if (ch == 'q' || ch == 'Q' || ch == 27 || ch == 10)
 		{
 			endwin();
-			break;
+			break ;
 		}
 		refresh();
 	}

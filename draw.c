@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 10:45:11 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 10:46:40 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:30:18 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-
-
 
 void	ft_draw_bg(int **tab, int y_max, int x_max)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 21:15:34 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:35:44 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,58 +27,7 @@ void		printmenu( bool sel, WINDOW *new_game, WINDOW *quit_game ) {
 	}
 }
 
-int			play(t_env *env)
-{
-	int		y_new;
-	int		x_new;
-	int		y_max;
-	int		x_max;
-	int		ret;
-	int 	ch;
-	int status;
 
-	wclear(stdscr);
-	getmaxyx(stdscr, y_max, x_max);
-	ft_draw_grid(env->tab);
-	refresh();
-	while (1)
-	{
-		getmaxyx(stdscr, y_new, x_new);
-		if (y_new != y_max || x_new != x_max)
-		{
-			y_max = y_new;
-			x_max = x_new;
-			clear();
-			ft_draw_grid(env->tab);
-		}
-		ret = check(env);
-		if (ret == -1)
-		{
-			gameover(x_max);
-			return (-1);
-		}
-		else if (ret == 1)
-		{
-			if (env->win == 0)
-			{
-				status = youwin(x_max, env);
-				ft_draw_grid(env->tab);
-			}
-			if (status == 0)
-				return (42);
-		}
-
-		ch = getch();
-		if (ch != -1)
-		{
-			env->tab = ft_keytrigger(ch, env);
-			ft_draw_grid(env->tab);
-		}
-
-		refresh();
-	}
-	return(0);
-}
 
 void		menu(int y, int x, t_env *env)
 {
