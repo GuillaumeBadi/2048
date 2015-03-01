@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 21:07:48 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:15:34 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ int			main(void)
 	srand(time(NULL));
 	ft_init();
 	env = (t_env *)malloc(sizeof(t_env));
+	// env->tab = (int **)malloc(sizeof(int *) * SIZE);
 	env->tab = make_tab();
 	env->score = 0;
 	env->tab = fill_tab(env);
@@ -166,5 +167,6 @@ int			main(void)
 	env->win = 0;
 	getmaxyx(stdscr, y_max, x_max);
 	menu(y_max, x_max, env);
+	printf("%d\n", env->score);
 	return (0);
 }

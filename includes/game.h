@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 21:08:11 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 21:14:25 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stdio.h>////////
 //////////////////////////
 
-# define EMPTY 				3
+# define EMPTY 			3
 
 # define COLOR_EMPTY	(13)
 # define COLOR_BG		(15)

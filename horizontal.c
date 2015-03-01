@@ -6,11 +6,12 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 00:27:09 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 05:59:52 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 20:13:17 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
+
 
 int					**merge_left(t_env *env)
 {
@@ -25,8 +26,10 @@ int					**merge_left(t_env *env)
 		{
 			if (env->tab[i][j] != EMPTY && env->tab[i][j + 1] == env->tab[i][j])
 			{
-				env->tab[i][j + 1] *= 2;
-				env->tab[i][j] = EMPTY;
+				env->tab[i][j] *= 2;
+				env->score += env->tab[i][j];
+				env->tab[i][j + 1] = EMPTY;
+				env->pop = 1;
 			}
 		}
 	}
@@ -98,8 +101,10 @@ int					**merge_right(t_env *env)
 		{
 			if (env->tab[i][j] != EMPTY && env->tab[i][j - 1] == env->tab[i][j])
 			{
-				env->tab[i][j - 1] *= 2;
-				env->tab[i][j] = EMPTY;
+				env->tab[i][j] *= 2;
+				env->score += env->tab[i][j];
+				env->tab[i][j - 1] = EMPTY;
+				env->pop = 1;
 			}
 		}
 	}

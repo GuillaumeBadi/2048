@@ -6,7 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 00:28:40 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 06:00:10 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 21:09:23 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,10 @@ int					**merge_bottom(t_env *env)
 		{
 			if (env->tab[i][j] != EMPTY && env->tab[i - 1][j] == env->tab[i][j])
 			{
-				env->tab[i - 1][j] *= 2;
-				env->tab[i][j] = EMPTY;
+				env->tab[i][j] *= 2;
+				env->score += env->tab[i][j];
+				env->tab[i - 1][j] = EMPTY;
+				env->pop = 1;
 			}
 		}
 	}
@@ -100,8 +102,10 @@ int					**merge_top(t_env *env)
 		{
 			if (env->tab[i][j] != EMPTY && env->tab[i + 1][j] == env->tab[i][j])
 			{
-				env->tab[i][j] = env->tab[i + 1][j] * 2;
+				env->tab[i][j] *= 2;
+				env->score += env->tab[i][j];
 				env->tab[i + 1][j] = EMPTY;
+				env->pop = 1;
 			}
 		}
 	}
