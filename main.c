@@ -108,7 +108,6 @@ int			main(void)
 	srand(time(NULL));
 	ft_init();
 	env = (t_env *)malloc(sizeof(t_env));
-	// env->tab = (int **)malloc(sizeof(int *) * SIZE);
 	env->tab = make_tab();
 	env->score = 0;
 	env->tab = fill_tab(env);
@@ -116,6 +115,5 @@ int			main(void)
 	env->win = 0;
 	getmaxyx(stdscr, y_max, x_max);
 	menu(y_max, x_max, env);
-	printf("%d\n", env->score);
 	return (0);
 }

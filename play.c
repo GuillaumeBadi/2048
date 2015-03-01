@@ -45,7 +45,6 @@ int			youwin(int x, t_env *env)
 	while (1)
 	{
 		ch = getch();
-		printwin(x);
 		if (ch == 'q' || ch == 'Q' || ch == 27)
 		{
 			endwin();

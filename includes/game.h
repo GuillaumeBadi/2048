@@ -6,11 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2015/03/01 21:51:32 by gbadi            ###   ########.fr       */
-=======
 /*   Updated: 2015/03/01 21:56:24 by dvolberg         ###   ########.fr       */
->>>>>>> f0c3bd0566fc552ec6960ebc3df71c4d10046d4c
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +48,16 @@ typedef struct			s_env
 	size_t				score;
 	size_t				highscore;
 	char				pop;
-	int		y_new;
-	int		x_new;
-	int		y_max;
-	int		x_max;
-		int		status;
+	int					y_new;
+	int					x_new;
+	int					y_max;
+	int					x_max;
+	int					status;
 }						t_env;
 
 enum					e_const
 {
-	SIZE = 4,
+	SIZE = 8,
 	WIN_VALUE = 2048
 };
 
