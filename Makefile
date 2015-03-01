@@ -5,42 +5,51 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/02/18 05:41:35 by bsautron          #+#    #+#              #
-#    Updated: 2015/03/01 02:11:50 by gbadi            ###   ########.fr        #
+#    Created: 2015/03/01 22:16:59 by gbadi             #+#    #+#              #
+#    Updated: 2015/03/01 23:03:43 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror
+
+SOURCE = main.c\
+		ascii.c\
+		ascii2.c\
+		display.c\
+		draw.c\
+		ft_get_pair.c\
+		game.c\
+		horizontal.c\
+		input.c\
+		vertical.c\
+		play.c\
+		play2.c\
+		play3.c\
+		print.c\
+		print2.c\
+		print3.c\
+		tab.c
+
+SRCO = $(SOURCE:%.c=%.o)
+
 NAME = game_2048
-SRC = main.c
-DIR_H = ./includes
-HEADERS = $(DIR_H)/game.h \
-		 $(DIR_H)/libft.h \
-		 $(DIR_H)/get_next_line.h
-OBJ = $(SRC:%.c=%.o)
-CFLAGS = -Wextra -Wall -Werror -lncurses
-LIB = -L./libft -lft
 
-.PHONY: all libs clean fclean re
+all: $(NAME)
 
-all: libs $(NAME)
+$(NAME): $(SRCO)
+	@make -C libft
+	$(CC) $(CFLAGS) $(SOURCE) -L./libft/ -lft -o $(NAME) -I./includes/ -lncurses
 
-$(NAME): $(OBJ)
-	@echo "\033[31m"
-	@$(CC) -o $@ $^ $(LIB) $(CFLAGS) -g
-	@echo "\033[37m"
-
-libs:
-	@make -C libft/
-
-%.o: %.c $(HEADERS)
-	# @echo "\033[33m   $<"
-	@$(CC) -o $@ -I includes/ -c $< -g
+%.o: %.c ./includes/game.h
+	$(CC) -o $@  -I includes/ -c $< -lncurses $(FLAGS)
 
 clean:
-	@rm -f $(OBJ)
+	make -C libft clean
 
 fclean: clean
-	@rm -f $(NAME)
+	make -C libft fclean
+	/bin/rm -rf $(NAME)
 
 re: fclean all

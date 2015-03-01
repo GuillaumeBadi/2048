@@ -6,7 +6,7 @@
 /*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 21:35:44 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 22:45:37 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		printmenu( bool sel, WINDOW *new_game, WINDOW *quit_game ) {
 
 
 
-void		menu(int y, int x, t_env *env)
+void		menu(int x, int y, t_env *env)
 {
 	int		ch = 10;
 	bool	sel = true;
@@ -61,6 +61,8 @@ void		menu(int y, int x, t_env *env)
 		env->tab = ft_keytrigger(ch, env);
 		play(env);
 	}
+	(void)x;
+	(void)y;
 	endwin();
 }
 
@@ -114,6 +116,6 @@ int			main(void)
 	env->tab = fill_tab(env);
 	env->win = 0;
 	getmaxyx(stdscr, y_max, x_max);
-	menu(y_max, x_max, env);
+	menu(x_max, y_max, env);
 	return (0);
 }

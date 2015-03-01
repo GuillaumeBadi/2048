@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   play2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 18:01:29 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 22:00:37 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 22:47:56 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void part_3(void)
 
 void printgameover(int x)
 {
+	(void)x;
 	part_1();
 	part_2();
 	part_3();

@@ -6,7 +6,7 @@
 /*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:20:56 by bsautron          #+#    #+#             */
-/*   Updated: 2015/03/01 22:00:54 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/03/01 22:40:56 by dvolberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ void	color_init_pair2(void)
 	init_pair(39, COLOR_WHITE, COLOR_512);
 	init_pair(40, COLOR_WHITE, COLOR_1024);
 	init_pair(41, COLOR_WHITE, COLOR_2048);
-	init_pair(42, COLOR_WHITE, COLOR_4098);
+	init_pair(42, COLOR_WHITE, COLOR_4096);
 }
 
 void	ft_init(void)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 21:56:24 by dvolberg         ###   ########.fr       */
+/*   Updated: 2015/03/01 23:04:30 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define COLOR_512		(39)
 # define COLOR_1024		(40)
 # define COLOR_2048		(41)
-# define COLOR_4098		(42)
+# define COLOR_4096		(42)
 # define TWO_RATIO 		8
 
 typedef struct			s_env
@@ -60,6 +60,7 @@ enum					e_const
 	SIZE = 8,
 	WIN_VALUE = 2048
 };
+
 
 int						**fill_tab(t_env *env);
 void					ft_draw_grid(int **tab);
@@ -103,5 +104,6 @@ void					ascii_2048(int y, int x);
 void					ascii_4096(int y, int x);
 void					free_env(t_env *e);
 int						play(t_env *env);
+void					printwin(int x);
 
 #endif
