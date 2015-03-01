@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2015/03/01 23:04:30 by gbadi            ###   ########.fr       */
+=======
+/*   Updated: 2015/03/01 22:37:57 by dvolberg         ###   ########.fr       */
+>>>>>>> e632f7a54f208ec6af3ff3ff76c0c2715f600907
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +40,7 @@
 # define COLOR_512		(39)
 # define COLOR_1024		(40)
 # define COLOR_2048		(41)
-# define COLOR_4098		(42)
+# define COLOR_4096		(42)
 # define TWO_RATIO 		8
 
 typedef struct			s_env
@@ -58,7 +62,7 @@ typedef struct			s_env
 enum					e_const
 {
 	SIZE = 4,
-	WIN_VALUE = 2048
+	WIN_VALUE = 8
 };
 
 
